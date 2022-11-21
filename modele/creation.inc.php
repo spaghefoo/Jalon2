@@ -9,14 +9,16 @@ function createUser($mail, $cp, $mdp, $ville, $nom)
     $req->execute([$mail]);
     $user = $req->fetch();
 
-    if($user['AdresseMail'])
+    if($user)
     {
         $message = "Un compte existe déjà avec ce mail.";
+        return $message;
     }
     else
     {
-    $req = $co->prepare("INSERT INTO client(Nom, AdresseMail, CP, Ville, motPasse) VALUES(:nom, :adr, :cp, :vil, :mdp)");
+    $req = $co->prepare("INSERT INTO client(IdClient ,Nom, AdresseMail, CP, Ville, motPasse) VALUES(:id ,:nom, :adr, :cp, :vil, :mdp)");
     $req->execute(array(
+        ':id' => 0,
         ':nom' => $nom,
         ':adr' => $mail,
         ':cp'  => $cp,
@@ -24,7 +26,6 @@ function createUser($mail, $cp, $mdp, $ville, $nom)
         ':mdp' => $mdp
     ));
     }
-
 
 }
 
