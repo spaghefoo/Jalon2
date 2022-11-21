@@ -6,7 +6,7 @@
 <div class="container">
     <div class="card">
         <div class="content">
-            <form id="centre" action="./?action/controleur/connexion.php" method="POST">
+            <form id="centre" action="../?action=connexion" method="POST">
                 <p>Email</p>
                 <input type="text" name="mailU" placeholder="" /> <br /><br />
 
