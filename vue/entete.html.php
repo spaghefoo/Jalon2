@@ -26,7 +26,4 @@
 
     </ul>
 </nav>
-
-
-
 <!--Ne pas fermer l'html et le body (il est fermer dans la page pied.php)-->

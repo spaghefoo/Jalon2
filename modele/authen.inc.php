@@ -51,5 +51,4 @@ function isLoggedOn() {
     }
     return $ret;
 }
-
 ?>
