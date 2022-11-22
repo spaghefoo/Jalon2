@@ -16,7 +16,7 @@ else {
 login($mailU,$mdpU);
 
 if (isLoggedOn()){ // si l'utilisateur est connecté on redirige vers le controleur monProfil
-    include "$racine/controleur/monProfil.php";
+    include "$racine/vue/vueAuthentification.php";
 }
 else{ // l'utilisateur n'est pas connecté, on affiche le formulaire de connexion
     // appel du script de vue 
