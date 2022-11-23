@@ -16,7 +16,9 @@ else {
 login($mailU,$mdpU);
 
 if (isLoggedOn()){ // si l'utilisateur est connecté on redirige vers le controleur monProfil
-    include "$racine/vue/vueAuthentification.php";
+    include "$racine/vue/entete.html.php";
+    echo "connecter";
+    include "$racine/vue/pied.html.php";
 }
 else{ // l'utilisateur n'est pas connecté, on affiche le formulaire de connexion
     // appel du script de vue 
@@ -24,6 +26,7 @@ else{ // l'utilisateur n'est pas connecté, on affiche le formulaire de connexio
     include "$racine/vue/entete.html.php";
     include "$racine/vue/vueAuthentification.php";
     include "$racine/vue/pied.html.php";
+    echo "pas co";
 }
 
 ?>

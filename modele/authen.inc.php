@@ -1,6 +1,6 @@
 <?php
 //Ici seront créer les fonctions qui permettent la connexion et la deconnexion
-include_once "utilisateur.int.php";
+include_once "utilisateur.inc.php";
 
 function login($mailU, $mdpU) {
     if (!isset($_SESSION)) {
@@ -8,12 +8,12 @@ function login($mailU, $mdpU) {
     }
 
     $util = getUtilisateurByMailU($mailU);
-    $mdpBD = $util["mdpU"];
+    $mdpBD = $util["motPasse"];
 
     if (trim($mdpBD) == trim(crypt($mdpU, $mdpBD))) {
         // le mot de passe est celui de l'utilisateur dans la base de donnees
-        $_SESSION["mailU"] = $mailU;
-        $_SESSION["mdpU"] = $mdpBD;
+        $_SESSION["AdresseMail"] = $mailU;
+        $_SESSION["motPasse"] = $mdpBD;
     }
 }
 
@@ -21,13 +21,13 @@ function logout() {
     if (!isset($_SESSION)) {
         session_start();
     }
-    unset($_SESSION["mailU"]);
-    unset($_SESSION["mdpU"]);
+    unset($_SESSION["AdresseMail"]);
+    unset($_SESSION["motPasse"]);
 }
 
 function getMailULoggedOn(){
     if (isLoggedOn()){
-        $ret = $_SESSION["mailU"];
+        $ret = $_SESSION["AdresseMail"];
     }
     else {
         $ret = "";
@@ -42,9 +42,9 @@ function isLoggedOn() {
     }
     $ret = false;
 
-    if (isset($_SESSION["mailU"])) {
-        $util = getUtilisateurByMailU($_SESSION["mailU"]);
-        if ($util["mailU"] == $_SESSION["mailU"] && $util["mdpU"] == $_SESSION["mdpU"]
+    if (isset($_SESSION["AdresseMail"])) {
+        $util = getUtilisateurByMailU($_SESSION["motPasse"]);
+        if ($util["AdresseMail"] == $_SESSION["AdresseMail"] && $util["motPasse"] == $_SESSION["motPasse"]
         ) {
             $ret = true;
         }
