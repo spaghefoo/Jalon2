@@ -13,6 +13,6 @@ createUser(); //VARIABLES A REMPLIR SVPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
 
 include("$racine/vue/entete.html.php");
 include("$racine/vue/pied.html.php");
-include("$racine/vue/");
+include("$racine/vue/vueInscription.php");
 
 ?>
