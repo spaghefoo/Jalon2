@@ -12,6 +12,7 @@
     display: inline-flex;
     width:100%;
     list-style: none;
+    position: sticky;
 }
 
 .connexion

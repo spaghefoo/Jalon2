@@ -8,4 +8,4 @@
 
 </form>
 <br />
-<a href="">Déja un compte? Connexion.</a>
+<a href="?action=connexion">Déja un compte? Connexion.</a>

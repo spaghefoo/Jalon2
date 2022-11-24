@@ -53,7 +53,7 @@ function updateMdp($mail,$mdp)
         $req = connexionPDO();
         $req->prepare("UPDATE client SET motPasse = ? WHERE AdresseMail = ?");
         $req->execute([$mdp, $mail]);
-        $mesage = 'Mise a jour du mot de passe reussie';
+        $message = 'Mise a jour du mot de passe reussie';
     }
     catch(PDOException $e)
     {
