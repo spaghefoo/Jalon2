@@ -1,0 +1,25 @@
+*
+{
+    border:0px;
+    margin:auto;
+    box-sizing: content-box;
+}
+
+
+#menuGeneral
+{
+    background-color: rgba(217, 217, 217, 0.5);
+    display: inline-flex;
+    width:100%;
+    list-style: none;
+    position: sticky;
+}
+
+.connexion
+{
+    
+    border-radius: 35px;
+    color: white;
+    padding:12px;
+    background-color: #4D88FF;
+}

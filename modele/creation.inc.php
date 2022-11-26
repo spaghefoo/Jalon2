@@ -1,6 +1,7 @@
 <?php
 include("bd.inc.php");
 
+// PERMET DE CREER UN UTILISATEUR DANS LA BASE DE DONNEES
 function createUser($mail, $cp, $mdp, $ville, $nom)
 {
     $co = connexionPDO();
@@ -41,7 +42,7 @@ function createUser($mail, $cp, $mdp, $ville, $nom)
     return $message; //  MESSAGE D'ERREUR
 }
 
-
+// PERMET DE MODIFIER UN MOT DE PASSE D'UTILISATEUR
 function updateMdp($mail,$mdp)
 {
 
@@ -52,6 +53,7 @@ function updateMdp($mail,$mdp)
         $req = connexionPDO();
         $req->prepare("UPDATE client SET motPasse = ? WHERE AdresseMail = ?");
         $req->execute([$mdp, $mail]);
+        $message = 'Mise a jour du mot de passe reussie';
     }
     catch(PDOException $e)
     {

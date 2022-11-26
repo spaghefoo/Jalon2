@@ -14,7 +14,7 @@
                 <input type="password" name="mdpU" placeholder="" /> <br /><br />
                 <input type="submit" />
             </form>
-            <br><br><p>Pas de compte ? <a href="#"><b>Inscription</b></a></p>
+            <br><br><p>Pas de compte ? <a href="?action=inscription"><b>Inscription</b></a></p>
             <br />
         </div>
     </div>

@@ -1,6 +1,8 @@
 <?php
 include_once "bd.inc.php";
 
+
+// TOUT LES UTILISATEURS
 function getUtilisateurs() {
     $resultat = array();
 
@@ -21,6 +23,7 @@ function getUtilisateurs() {
     return $resultat;
 }
 
+// PERMET DE RETROUVER UN UTILISATEUR A PARTIR DE SON MAIL
 function getUtilisateurByMailU($mailU) {
     $resultat = array();
 
@@ -36,5 +39,11 @@ function getUtilisateurByMailU($mailU) {
         die();
     }
     return $resultat;
+}
+
+// PERMET DE TROUVER UN UTILISATEUR PAR SON ID
+function getUtilisateurById()
+{
+
 }
 ?>

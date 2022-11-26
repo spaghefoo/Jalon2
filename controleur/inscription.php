@@ -8,11 +8,13 @@ include_once "$racine/modele/creation.inc.php";
 
 $titre = "Créer un compte";
 
-createUser(); //VARIABLES A REMPLIR SVPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
-
+if(isset($_POST))
+{
+    createUser();
+}
 
 include("$racine/vue/entete.html.php");
 include("$racine/vue/pied.html.php");
-include("$racine/vue/");
+include("$racine/vue/vueInscription.php");
 
 ?>
