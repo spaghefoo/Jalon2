@@ -29,8 +29,8 @@ function getUtilisateurByMailU($mailU) {
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from client where AdresseMail=:mailU");
-        $req->bindValue(':mailU', $mailU, PDO::PARAM_STR);
+        $req = $cnx->prepare("select * from client where AdresseMail=:AdresseMail");
+        $req->bindValue(':AdresseMail', $mailU, PDO::PARAM_STR);
         $req->execute();
         
         $resultat = $req->fetch(PDO::FETCH_ASSOC);

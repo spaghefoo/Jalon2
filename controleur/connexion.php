@@ -23,6 +23,7 @@ login($mailU,$mdpU);
 // 5 - appel du script de vue qui permet de gerer l'affichage des donnees
 if (isLoggedOn()){ // si l'utilisateur est connecté on redirige vers le controleur monProfil
     include "$racine/controleur/monProfil.php";
+
 }
 else{ // l'utilisateur n'est pas connecté, on affiche le formulaire de connexion
     // appel du script de vue 
