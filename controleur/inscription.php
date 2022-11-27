@@ -11,7 +11,10 @@ include_once "$racine/modele/creation.inc.php";
 // 4 - traitement si necessaire des donnees recuperees
 if(isset($_POST))
 {
-    createUser();
+    // sofiane - je finis la fonction d'inscription. j'ai assigné les variables dans la vue inscription
+    $user = $_POST['createUserMail'];
+    $passwd = $_POST['createUserPassword'];
+    $retour = createUser($user, $passwd); // La fonction retourne un message en fonction de si ça a reussi ou pas, on peut essayer de le mettre qq part?
 }
 
 // 5 - appel du script de vue qui permet de gerer l'affichage des donnees

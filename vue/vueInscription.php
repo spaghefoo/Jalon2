@@ -2,8 +2,8 @@
 
 <form action="emplacement de connexion" method="POST">
 
-<input type="text" name="ICI METTRE LE NOM DE LA VARIABLE PHP EMAIL" placeholder="Email de connexion" /> <br />
-<input type="password" name="ICI METTRE LE NOM DE LA VARIABLE PHP PASSWORD" placeholder="Mot de passe" /> <br />
+<input type="text" name="createUserMail" placeholder="Email de connexion" /> <br />
+<input type="password" name="createUserPassword" placeholder="Mot de passe" /> <br />
 <input type="submit" />
 
 </form>
