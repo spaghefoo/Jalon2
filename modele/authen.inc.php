@@ -9,10 +9,12 @@ function login($mailU, $mdpU) {
 
     $util = getUtilisateurByMailU($mailU);
     $mdpBD = $util["motPasse"] ?? 'default value'; // astuce trouvé sur internet pour eviter un warning ": Trying to access array offset on value of type bool"
+    #echo "MOT DE PASSE1"."mdpU=".$mdpU,"mdpBD=".$mdpBD."<br>";
+    #echo "MOT DE PASSE2=".crypt($mdpU,$mdpBD)."<br>";
     if (trim($mdpBD) == trim(crypt($mdpU, $mdpBD))) {
         // le mot de passe est celui de l'utilisateur dans la base de donnees
-        $_SESSION["AdresseMail"] = $mailU;
-        $_SESSION["motPasse"] = $mdpBD;
+        $_SESSION["mailU"] = $mailU;
+        $_SESSION["mdpU"] = $mdpBD;
     }
 }
 
@@ -20,19 +22,19 @@ function logout() {
     if (!isset($_SESSION)) {
         session_start();
     }
-    unset($_SESSION["AdresseMail"]);
-    unset($_SESSION["motPasse"]);
+    unset($_SESSION["mailU"]);
+    unset($_SESSION["mdpU"]);
 }
 
 function getMailULoggedOn(){
     if (isLoggedOn()){
-        $ret = $_SESSION["AdresseMail"];
+        $ret = $_SESSION["mailU"];
     }
     else {
         $ret = "";
     }
     return $ret;
-        
+
 }
 
 function isLoggedOn() {
@@ -41,9 +43,9 @@ function isLoggedOn() {
     }
     $ret = false;
 
-    if (isset($_SESSION["AdresseMail"])) {
-        $util = getUtilisateurByMailU($_SESSION["motPasse"]);
-        if ($util["AdresseMail"] == $_SESSION["AdresseMail"] && $util["motPasse"] == $_SESSION["motPasse"]
+    if (isset($_SESSION["mailU"])) {
+        $util = getUtilisateurByMailU($_SESSION["mailU"]);
+        if ($util["AdresseMail"] == $_SESSION["mailU"] && $util["motPasse"] == $_SESSION["mdpU"]
         ) {
             $ret = true;
         }
