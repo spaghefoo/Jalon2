@@ -1,11 +1,15 @@
+<section class="section">
+<h2>Mon profil</h2>
 
-<h1>Mon profil</h1>
-
-Mon adresse électronique : </br>
-Mon pseudo : </br>
+Mon Id client : <?= $util["IdClient"] ?> <br /></br>
+Mon Nom : <?= $util["Nom"] ?> <br /></br>
+Mon adresse électronique : <?= $util["AdresseMail"] ?> <br /></br>
+Mon code postal : <?= $util["CP"] ?> <br /></br>
+Ma Ville : <?= $util["Ville"] ?> <br /></br>
 
 <!--Indiquer les informations nécessaire-->
 <!--Faire un bouton déconnexion-->
+    <!--
 <div class="conexion/deconnexion">
     <?php if( isset($_SESSION['user_id']) && $_SESSION['user_id'] !== null ) : ?>
         <a href="?logout()">Se déconnecter</a>
@@ -13,3 +17,6 @@ Mon pseudo : </br>
         <a href="vueAuthentification.php">Se connecter</a>
     <?php endif; ?>
 </div>
+-->
+    <a href="./?action=deconnexion">Se déconnecter</a>
+</section>

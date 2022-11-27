@@ -1,6 +1,6 @@
 <?php
 //Ici seront créer les fonctions qui permettent la connexion et la deconnexion
-include_once "utilisateur.int.php";
+include_once "utilisateur.inc.php";
 
 function login($mailU, $mdpU) {
     if (!isset($_SESSION)) {
@@ -8,8 +8,9 @@ function login($mailU, $mdpU) {
     }
 
     $util = getUtilisateurByMailU($mailU);
-    $mdpBD = $util["mdpU"];
-
+    $mdpBD = $util["motPasse"] ?? 'default value'; // astuce trouvé sur internet pour eviter un warning ": Trying to access array offset on value of type bool"
+    #echo "MOT DE PASSE1"."mdpU=".$mdpU,"mdpBD=".$mdpBD."<br>";
+    #echo "MOT DE PASSE2=".crypt($mdpU,$mdpBD)."<br>";
     if (trim($mdpBD) == trim(crypt($mdpU, $mdpBD))) {
         // le mot de passe est celui de l'utilisateur dans la base de donnees
         $_SESSION["mailU"] = $mailU;
@@ -44,7 +45,7 @@ function isLoggedOn() {
 
     if (isset($_SESSION["mailU"])) {
         $util = getUtilisateurByMailU($_SESSION["mailU"]);
-        if ($util["mailU"] == $_SESSION["mailU"] && $util["mdpU"] == $_SESSION["mdpU"]
+        if ($util["AdresseMail"] == $_SESSION["mailU"] && $util["motPasse"] == $_SESSION["mdpU"]
         ) {
             $ret = true;
         }

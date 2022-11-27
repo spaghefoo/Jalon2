@@ -1,12 +1,14 @@
-<link rel="stylesheet" href="../CSS/connexion.css">
+<!-- Galdric en commentaire car j'arrive pas à regler le probleme css (desole Theophane) <link rel="stylesheet" href="../CSS/connexion.css"> -->
 <!--<meta http-equiv="refresh" content="3">-->
+
+<section class="section">
 <div id="connexionTitre">
     <h1>Connexion</h1>
 </div>
 <div class="container">
     <div class="card">
         <div class="content">
-            <form id="centre" action="../?action=connexion" method="POST">
+            <form id="centre" action="./?action=connexion" method="POST">
                 <p>Email</p>
                 <input type="text" name="mailU" placeholder="" /> <br /><br />
 
@@ -19,3 +21,5 @@
         </div>
     </div>
 </div>
+
+</section>
