@@ -2,7 +2,8 @@
 
 @CHARSET "UTF-8";
 body {
-    background-image: url("/images/ship-boat-sea-vehicle-blue-cruise-ship-519479-wallhere.com.jpg");
+    /* sofiane - manquait un ../ du coup je l'ai rajouté sinon ça marchait pas */
+    background-image: url("../images/ship-boat-sea-vehicle-blue-cruise-ship-519479-wallhere.com.jpg");
 }
 
 /* AJOUT GALDRIC */
