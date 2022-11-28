@@ -21,4 +21,10 @@ if (isLoggedOn()) {
     include_once "$racine/vue/vuemonProfil.php";
     include_once "$racine/vue/pied.html.php";
 }
+else
+{
+    include_once "$racine/vue/entete.html.php";
+    include_once "$racine/vue/vueAuthentification.php";
+    include_once "$racine/vue/pied.html.php";
+}
 ?>
