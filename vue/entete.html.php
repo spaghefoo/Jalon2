@@ -13,10 +13,10 @@
     <div class="page">
         <nav class="page__menu page__custom-settings menu">
             <ul class="menu__list r-list">
-                <li class="menu__group"><a href="./?action=accueil"" class="menu__link r-link text-underlined">Marie♥Team</a></li>
+                <li class="menu__group"><a href="./?action=accueil" class="menu__link r-link text-underlined">Marie♥Team</a></li>
                 <li class="menu__group"><a href="./?action=qui-sommes-nous" class="menu__link r-link text-underlined">Qui sommes-nous ?</a></li>
                 <li class="menu__group"><a href="./?action=destinations" class="menu__link r-link text-underlined">Destinations</a></li>
-                <li class="menu__group"><a href="./?action=tarifs" class="menu__link r-link text-underlined">Tarifs</a></li>
+                <!--<li class="menu__group"><a href="./?action=tarifs" class="menu__link r-link text-underlined">Tarifs</a></li>-->
                 <?php if (isLoggedOn()) {?>
                 <li class="menu__group"><a href="./?action=profil" class="menu__link r-link text-underlined">MonProfil</a></li>
                 <?php }

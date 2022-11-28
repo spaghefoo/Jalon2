@@ -11,8 +11,8 @@ include_once "$racine/modele/creation.inc.php";
 // 4 - traitement si necessaire des donnees recuperees
 if(!empty($_POST))
 {
-    // sofiane - FAIRE LE CHIFFREMENT LA LE MDP EST EN CLAIR 
     //(hormis l'auto incrément qui est pt a fix plus tard ça fonctionne en tout cas)
+
    $message =  createUser($_POST['email'], $_POST['codePostal'], $_POST['password'], $_POST['nomVille'], $_POST['nom']);
 }
 

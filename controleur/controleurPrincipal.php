@@ -9,6 +9,8 @@ function controleurPrincipal($action){
     $lesActions["qui-sommes-nous"] = "QuiSommesNous.php"; // page à propos
     $lesActions["destinations"] = "destinations.php"; // formulaire destinatoins
     $lesActions["inscription"] = "inscription.php"; // Formulaire inscrption
+    $lesActions['reservation'] = "reservation.php"; // page reservation
+    $lesActions['mesReservations'] = "mesReservations.php"; //page mesReservations
     if (array_key_exists ( $action , $lesActions )){
         return $lesActions[$action];
     }

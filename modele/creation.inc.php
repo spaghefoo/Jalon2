@@ -16,13 +16,18 @@ function createUser($mail, $cp, $mdp, $ville, $nom)
     {
         $message = "Un compte existe déjà avec ce mail.";
     }
+    elseif (!verificationMotspasse($mdp)){ // Galdric : vérification que le mots passe respetcent les régles de sécurité
+        $message = "Le mots passe ne respectent pas les régles de sécurité";
+    }
     else
     {
         try
         {
-        $req = $co->prepare("INSERT INTO client(IdClient ,Nom, AdresseMail, CP, Ville, motPasse) VALUES(:id ,:nom, :adr, :cp, :vil, :mdp)");
-        $req->execute(array(
-            ':id' => 0, //AUTO INCREMENT PT A FIX PLUS TARD
+            $id = $co ->query("SELECT * FROM client")->fetch();
+            echo (int)$id;
+            $req = $co->prepare("INSERT INTO client(IdClient ,Nom, AdresseMail, CP, Ville, motPasse) VALUES(:id ,:nom, :adr, :cp, :vil, :mdp)");
+            $req->execute(array(
+            ':id' => (int)$id, //AUTO INCREMENT PT A FIX PLUS TARD
             ':nom' => $nom,
             ':adr' => $mail,
             ':cp'  => $cp, 
@@ -48,24 +53,47 @@ function updateMdp($mail,$mdp)
 
     $message = "";
 
-    try
-    {
-        $req = connexionPDO();
-        $req->prepare("UPDATE client SET motPasse = ? WHERE AdresseMail = ?");
-        $req->execute([crypt($mdp, 'gal'), $mail]);
-        $message = 'Mise a jour du mot de passe reussie';
+    if (!verificationMotspasse($mdp)){
+        $message = "Le mots passe ne respectent pas les régles de sécurité";
     }
-    catch(PDOException $e)
-    {
-        $message = $e->getMessage();
-        die();
-    }
-    finally
-    {
-        $req = null;
-    }
+    else {
+        try{
+            $req = connexionPDO();
+            $req->prepare("UPDATE client SET motPasse = ? WHERE AdresseMail = ?");
+            $req->execute([crypt($mdp, 'gal'), $mail]);
+            $message = 'Mise a jour du mot de passe reussie';
+        }
+        catch(PDOException $e)
+        {
+            $message = $e->getMessage();
+            die();
+        }
+        finally
+        {
+            $req = null;
+        }
 
-    return $message;
+        return $message;
+    }
+}
+
+// galdric - vérifie que le mots passe resptcent les régles de sécurité
+//https://www.web-development-kb-eu.site/fr/php/creer-preg-match-pour-la-validation-du-mot-de-passe-permettant/1068096486/
+
+function verificationMotspasse ($mdp, $min_len = 12, $max_len = 70, $req_digit = 1, $req_lower = 1, $req_upper = 1, $req_symbol = 1) {
+    // Construire une chaîne en fonction des exigences pour le mot de passe
+    $regex = '/^';// grave au langage regex
+    if ($req_digit == 1) { $regex .= '(?=.*\d)'; }              //Fait correspondre au moins 1 chiffre
+    if ($req_lower == 1) { $regex .= '(?=.*[a-z])'; }           // Fait correspondre au moins 1 lettre minuscule
+    if ($req_upper == 1) { $regex .= '(?=.*[A-Z])'; }           // Fait correspondre au moins 1 lettre majuscule
+    if ($req_symbol == 1) { $regex .= '(?=.*[^a-zA-Z\d])'; }    // Fait correspondre au moins 1 caractère qui n'est aucun des éléments ci-dessus
+    $regex .= '.{' . $min_len . ',' . $max_len . '}$/';
+
+    if(preg_match($regex, $mdp)) {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
 }
 
 
