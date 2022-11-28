@@ -33,7 +33,6 @@ function createUser($mail, $cp, $mdp, $ville, $nom)
         catch (PDOException $e)
         {
             $message = $e->getMessage();
-            die();
         }
         finally
         {
