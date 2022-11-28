@@ -5,7 +5,6 @@
 // sofiane - permet d'avoir toutes les traversées
 function getTraversees()
 {
- // A COMPLETER
  try
  {
     $traversees = array();
@@ -15,7 +14,7 @@ function getTraversees()
 
     while($tableau = $request->fetch(PDO::FETCH_ASSOC))
     {
-        $traversees[] = $tableau;
+        $traversees[] = $tableau; //la liste des traversées...
     }
  }
  catch(PDOException $e)
