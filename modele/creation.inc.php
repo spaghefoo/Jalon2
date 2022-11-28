@@ -16,18 +16,15 @@ function createUser($mail, $cp, $mdp, $ville, $nom)
     {
         $message = "Un compte existe déjà avec ce mail.";
     }
-    elseif (!verificationMotspasse($mdp)){ // Galdric : vérification que le mots passe respetcent les régles de sécurité
-        $message = "Le mots passe ne respectent pas les régles de sécurité";
+    elseif (!verificationMotspasse($mdp)){ // Galdric : vérification que le mot passe respecte les régles de sécurité
+        $message = "Le mot passe ne respecte pas les régles de sécurité";
     }
     else
     {
         try
         {
-            $id = $co ->query("SELECT * FROM client")->fetch();
-            echo (int)$id;
-            $req = $co->prepare("INSERT INTO client(IdClient ,Nom, AdresseMail, CP, Ville, motPasse) VALUES(:id ,:nom, :adr, :cp, :vil, :mdp)");
+            $req = $co->prepare("INSERT INTO client(Nom, AdresseMail, CP, Ville, motPasse) VALUES(:nom, :adr, :cp, :vil, :mdp)");
             $req->execute(array(
-            ':id' => (int)$id, //AUTO INCREMENT PT A FIX PLUS TARD
             ':nom' => $nom,
             ':adr' => $mail,
             ':cp'  => $cp, 
@@ -38,6 +35,7 @@ function createUser($mail, $cp, $mdp, $ville, $nom)
         catch (PDOException $e)
         {
             $message = $e->getMessage();
+            echo $message;
         }
         finally
         {

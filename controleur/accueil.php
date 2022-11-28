@@ -5,7 +5,6 @@ if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
 include_once "$racine/modele/bd.inc.php";
 
 // 2 - recuperation des donnees GET, POST, et SESSION
-;
 
 // 3 - appel des fonctions permettant de recuperer les donnees utiles a l'affichage
 # Galdric : Pour l'instant rien
