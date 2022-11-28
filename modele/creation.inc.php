@@ -1,5 +1,5 @@
 <?php
-include("bd.inc.php");
+include_once("bd.inc.php");
 
 // PERMET DE CREER UN UTILISATEUR DANS LA BASE DE DONNEES
 function createUser($mail, $cp, $mdp, $ville, $nom)
@@ -25,14 +25,15 @@ function createUser($mail, $cp, $mdp, $ville, $nom)
             ':id' => 0, //AUTO INCREMENT PT A FIX PLUS TARD
             ':nom' => $nom,
             ':adr' => $mail,
-            ':cp'  => $cp,
+            ':cp'  => $cp, 
             ':vil' => $ville,
-            ':mdp' => $mdp
+            ':mdp' => crypt($mdp, 'gal') // sof - j'ai repris le chiffrement qu'a mis galdric
         ));
         }
         catch (PDOException $e)
         {
             $message = $e->getMessage();
+            die();
         }
         finally
         {
@@ -52,7 +53,7 @@ function updateMdp($mail,$mdp)
     {
         $req = connexionPDO();
         $req->prepare("UPDATE client SET motPasse = ? WHERE AdresseMail = ?");
-        $req->execute([$mdp, $mail]);
+        $req->execute([crypt($mdp, 'gal'), $mail]);
         $message = 'Mise a jour du mot de passe reussie';
     }
     catch(PDOException $e)
