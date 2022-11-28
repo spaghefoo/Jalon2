@@ -1,3 +1,4 @@
+<!-- s - Design similaire calquée sur la page de connexion -->
 <section class="section">
     <div id="connexionTitre">
         <h1>Inscription</h1>
