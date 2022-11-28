@@ -23,10 +23,11 @@ function autoComplete(input)
         console.log(stre);  
         // on clean
         deleteEverything();
+        var stretrim = stre.toUpperCase().trim();
         // puis on affiche
         for(let i = 0; i < array.length; i++) // pour la valeur complete qu'on recup
         {
-            if(array[i][0].toUpperCase().includes(stre.toUpperCase())) // on met en majuscules comme ça peut importe si c'est majuscule ou minuscule
+            if(array[i][0].toUpperCase().includes(stretrim)) // on met en majuscules comme ça peut importe si c'est majuscule ou minuscule
             //(includes est sensible à la casse.)
             {
                 // on cree etc...(flemme d'expliquer c'est chiant mais en gros on place les elements dans la div a la suite)
