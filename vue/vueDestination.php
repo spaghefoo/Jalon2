@@ -14,22 +14,9 @@
                     </div>
                 </div>
             </form>
-    <?php
-    // Faire un bouton de recherche pour chercher les destinations saisies
-    // Faire un boucle qui affichera toutes les destinations existantes
-
-    // s - on recupere les traversées
-    $traversees = getTraversees();
-
-    // sofiane - petite boucle foreach afin d'afficher chaque traversée.
-    foreach($traversees as $value)
-    {
-        echo '<p>'.$value['dateTraversee'].' '.$value['CodeLiaison'].'</p>';
-    }
-    ?> 
     </div>
 </div>
 </section>
 <script>
-    autoComplete(document.getElementById('truc'));
+        autoComplete(document.getElementById('truc'));
 </script>
