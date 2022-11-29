@@ -1,9 +1,7 @@
 // Fichier crée par sofiane
 
 var stre = "";
-var auto = document.querySelector('#auto');
-var xxx = document.getElementsByClassName('xxx');
-elemente = document.getElementById('elements');
+var suggestion = document.getElementsByClassName('suggestion');
 
 
 
@@ -12,33 +10,56 @@ elemente = document.getElementById('elements');
 //sofiane - permet de recuperer la valeur de du champ et de mettre les valeurs...
 function autoComplete(input)
 {
+    // sofiane - definition des variables
+    var elemente = document.getElementById('elements');
+
 
     input.addEventListener('input', function(e)
     {
 
-        //s- on recup la veleurs
-        let value = input[0].value;
-        stre = value;
+        //s- on recup la valeurs
 
-        console.log(stre);  
+        // DEFINITION DES VARIABLES
+        var value = input[0].value;
+        var stretrim = value.toUpperCase().trim();
+        //console.log(value);  
         // on clean
         deleteEverything();
-        var stretrim = stre.toUpperCase().trim();
+        // on met la valeur en majuscule et on retire les espaces.
         // puis on affiche
         for(let i = 0; i < array.length; i++) // pour la valeur complete qu'on recup
         {
             if(array[i][0].toUpperCase().includes(stretrim)) // on met en majuscules comme ça peut importe si c'est majuscule ou minuscule
             //(includes est sensible à la casse.)
             {
+                let element = document.createElement('li');
                 // on cree etc...(flemme d'expliquer c'est chiant mais en gros on place les elements dans la div a la suite)
-                let element = document.createElement('b');
-                element.innerHTML = '<br />'+array[i][0]+'<br />';
-                element.className    = 'xxx';
-                document.getElementById('elements').appendChild(element);           
+                element.innerHTML = array[i][0];
+                element.className  = 'suggestion';
+                element.id = array[i][0]; // on met l'attribut name a ce qu'on a mis tout à l'heure
+                elemente.appendChild(element);  
+                element.style.cursor = 'pointer';
+                
+                // si un de ces elements sont cliqués...
+                element.addEventListener('click', function(e)
+                {
+                    SuggestClick(e); // on appelle cette fonction avec l'element qu'on a cliqué
+                });
             }
         }
     });
 }
+
+
+function SuggestClick(element)
+{
+    // on recupere les champs texte
+    var champ = document.querySelectorAll('input[type=text]');
+    let target = element.target.id; // on recupere l'attribut name qu'on a mis précédemment
+    console.log(element);
+    champ[0].value = target; // et on set la valeur du champ a celle du nom
+}
+
 
 // Permet de clean la div avant de reafficher
 function deleteEverything()
