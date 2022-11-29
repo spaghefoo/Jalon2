@@ -7,6 +7,7 @@ include_once('bd.inc.php');
 
 //voir https://www.php.net/manual/fr/function.header.php
 header('Content-Type: application/json'); 
+
 try
 {
     $co = connexionPDO(); // on se connecte
@@ -16,7 +17,7 @@ try
 }
 catch(PDOException $e)
 {
-    json_encode($e->getMessage()); // si y'a erreur
+    echo json_encode($e->getMessage()); // si y'a erreur
 }
 finally
 {

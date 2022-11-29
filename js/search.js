@@ -32,11 +32,11 @@ function autoComplete(input)
             if(array[i][0].toUpperCase().includes(stretrim)) // on met en majuscules comme ça peut importe si c'est majuscule ou minuscule
             //(includes est sensible à la casse.)
             {
-                let element = document.createElement('b');
+                let element = document.createElement('li');
                 // on cree etc...(flemme d'expliquer c'est chiant mais en gros on place les elements dans la div a la suite)
-                element.innerHTML = '<br />'+array[i][0]+'<br />';
+                element.innerHTML = array[i][0];
                 element.className  = 'suggestion';
-                element.name = array[i][0]; // on met l'attribut name a ce qu'on a mis tout à l'heure
+                element.id = array[i][0]; // on met l'attribut name a ce qu'on a mis tout à l'heure
                 elemente.appendChild(element);  
                 element.style.cursor = 'pointer';
                 
@@ -55,8 +55,8 @@ function SuggestClick(element)
 {
     // on recupere les champs texte
     var champ = document.querySelectorAll('input[type=text]');
-    let target = element.target.name; // on recupere l'attribut name qu'on a mis précédemment
-    //console.log(target);
+    let target = element.target.id; // on recupere l'attribut name qu'on a mis précédemment
+    console.log(element);
     champ[0].value = target; // et on set la valeur du champ a celle du nom
 }
 
