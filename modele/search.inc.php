@@ -1,6 +1,13 @@
 <?php
 // Fichier crée par sofiane
 include_once('bd.inc.php');
+// sofiane - cette ligne d'indiquer au navigateur qu'il s'agit d'un fichier json(alors que c'est du php mdr)
+
+// en soi ça change rien mais c'est plus propre.
+
+//voir https://www.php.net/manual/fr/function.header.php
+header('Content-Type: application/json'); 
+
 try
 {
     $co = connexionPDO(); // on se connecte
@@ -10,7 +17,7 @@ try
 }
 catch(PDOException $e)
 {
-    json_encode($e->getMessage()); // si y'a erreur
+    echo json_encode($e->getMessage()); // si y'a erreur
 }
 finally
 {
