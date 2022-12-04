@@ -18,7 +18,7 @@
     <?php endif; ?>
 </div>
 -->
-    <a href="./?action=mesReservations">Mes inscriptions</a><br><br>
+    <a href="./?action=mesReservations">Mes réservations</a><br><br>
     <a href="./?action=deconnexion">Se déconnecter</a>
 
 </section>
