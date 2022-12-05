@@ -12,6 +12,7 @@ function controleurPrincipal($action){
     $lesActions["detail-reservation"] = "reservation.php"; // page reservation
     $lesActions['mesReservations'] = "mesReservations.php"; //page mesReservations
     $lesActions['commander'] = "commande.php";
+    $lesActions['rgpd'] = "RGPD.php";
     if (array_key_exists ( $action , $lesActions )){
         return $lesActions[$action];
     }
