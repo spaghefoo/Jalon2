@@ -1,6 +1,8 @@
 <?php
 // fichier crée par sofiane
 
+//sofiane - G OUBLIE LE INCLUDE LOL
+include_once("bd.inc.php");
 
 // sofiane - permet d'avoir toutes les traversées
 function getTraversees()
@@ -52,6 +54,29 @@ function getTraverseesBynumero($numero)
         $co = null;
     }
     return $traversee;
+}
+
+// permet d'avoir les traversées par secteur
+function getAllTraverseesBySecteur($secteur)
+{
+    try
+    {
+        $co = connexionPDO();
+        //sofiane - REMPLACER PAR UNE VUE EN VRAI CA SERAIT MIEUX JE PENSE!!!!!!!!!!!!!!!
+        $prepare =$co->prepare('SELECT traversee.numeroTraversee, traversee.dateTraversee, traversee.heureTraversee, liaison.DistanceEnMillesMarin, secteur.nomSecteur, portDepart.libellePort AS libelleDepart, portArrivee.libellePort AS libelleArrivee FROM traversee, liaison INNER JOIN secteur ON secteur.nomSecteur LIKE :sect INNER JOIN port AS portDepart ON liaison.idPort = portDepart.idPort INNER JOIN port AS portArrivee ON liaison.IdPort_1 = portArrivee.IdPort');
+        $prepare->bindValue(":sect", $secteur, PDO::PARAM_STR);
+        $prepare->execute();
+        $fetch =  $prepare->fetchAll(PDO::FETCH_ASSOC);
+    }
+    catch(PDOException $e)
+    {
+        return $e->getMessage();   
+    }
+    finally
+    {
+        $co = null;
+    }
+    return $fetch;
 }
 
 ?>

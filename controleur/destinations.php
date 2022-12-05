@@ -6,9 +6,16 @@ if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
 // sofiane - on appelle le modele destination
 include_once("$racine/modele/destination.inc.php");
 // 2 - recuperation des donnees GET, POST, et SESSION
+if(!empty($_POST))
+{
+    $desti = $_POST['desti'];
+}
 
-// 3 - appel des fonctions permettant de recuperer les donnees utiles a l'affichage
-
+// 3 - appel des fonctions permettant de recuperer les donnees utiles a l'affichage    
+if(!empty($_POST))
+{
+$destination = getAllTraverseesBySecteur($desti);
+}
 // 4 - traitement si necessaire des donnees recuperees
 
 
