@@ -12,9 +12,9 @@
             <!--- sofiane - formulaire de recherche à faire plus tard psk j'ai la flemme et pas le tps la -->
             <form autocomplete="off" id="truc" action="?action=destinations" method="POST">
                 <div class="autocomplete" id="auto">   
-                    <input type='text' name='desti' placeholder="Rechercher une destination, un secteur..." />
+                    <input type='text' name='desti' class="destination" placeholder="Rechercher une destination, un secteur..." />
                     <input type='submit' />
-                    <div id="elements">
+                    <div id="elements" class='destination' class="test">
                     
                     </div>
                 </div>
@@ -27,7 +27,7 @@
             ?>
             <thead>
                 <tr>
-                    <td>Numéro de la traversée</td>
+                    <td>Numéro</td>
                     <td>Date</td>
                     <td>Heure</td>
                     <td>Distance(Miles marins)</td>
