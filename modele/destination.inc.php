@@ -37,13 +37,10 @@ function getTraverseesBynumero($numero)
     try
     {
     $co = connexionPDO();
-    $co->prepare("SELECT * FROM traversee WHERE numeroTraversee = ?");
-    $co->execute([$numero]);
-
-    while($tableau = $request->fetch(PDO::FETCH_ASSOC))
-    {
-        $traversee[] = $tableau;
-    }
+    $prepare = $co->prepare("SELECT * FROM traversee WHERE numeroTraversee = ?");
+    $prepare->bindValue($numero, PDO::PARAM_INT);
+    $prepare->execute();
+    $traversee = $prepare->fetch(PDO::FETCH_ASSOC);
     }
     catch(PDOException $e)
     {

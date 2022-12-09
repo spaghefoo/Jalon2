@@ -11,7 +11,7 @@ function controleurPrincipal($action){
     $lesActions["inscription"] = "inscription.php"; // Formulaire inscrption
     $lesActions["detail-reservation"] = "reservation.php"; // page reservation
     $lesActions['mesReservations'] = "mesReservations.php"; //page mesReservations
-    $lesActions['commander'] = "commande.php";
+    $lesActions['commander'] = "commande.php"; // page de commande?
     if (array_key_exists ( $action , $lesActions )){
         return $lesActions[$action];
     }

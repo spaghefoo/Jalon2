@@ -4,6 +4,11 @@
     {
         background-color:white;
     }
+    td
+    {
+        padding:20px;
+        margin:3px;
+    }
 </style>
 <link rel="stylesheet" href="./css/destinations.css" type="text/css" />
 <section>
@@ -22,7 +27,7 @@
         <table>
             <tbody>
     <?php
-        if(!empty($_POST))
+        if(!empty($destination))
         {
             ?>
             <thead>
@@ -37,12 +42,27 @@
             </thead>
             <tbody>
             <?php
+            $button = "";
+            if(isLoggedOn())
+            {
+                $ret = true;
+                $button = "Reservable";
+            }
             for($i = 0; $i < count($destination); $i++)
             {
                 echo '<tr>';
                 echo '<td>'.$destination[$i]['numeroTraversee'].'</td><td>'.$destination[$i]['dateTraversee'].'</td><td>'.$destination[$i]['heureTraversee'].'</td><td>'.$destination[$i]['DistanceEnMillesMarin'].'</td><td>'.$destination[$i]['libelleDepart'].'</td><td>'.$destination[$i]['libelleArrivee'].'</td>';
                 echo '</tr>';
             }
+        }
+        else
+        {
+            echo '
+            <tr>
+            <td>
+                Aucune destination trouvée.
+            </td>
+            </tr>';
         }
     ?> 
             </tbody>
