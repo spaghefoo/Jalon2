@@ -15,6 +15,7 @@ function getUtilisateurs() {
         while ($ligne) {
             $resultat[] = $ligne;
             $ligne = $req->fetch(PDO::FETCH_ASSOC);
+            // test
         }
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
