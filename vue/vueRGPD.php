@@ -15,8 +15,8 @@
         <b>
                 1. Introduction
         </b><br>
-        <br> La confidentialité des visiteurs de notre site web est très importante à nos yeux, et nous nous engageons à la protéger. Cette politique détaille ce que nous faisons de vos informations personnelles.<br> Consentir à notre utilisation de
-        cookies en accord avec cette politique lors de votre première visite de notre site web nous permet d’utiliser des cookies à chaque fois que vous consultez notre site.<br>
+        <br> La confidentialité des visiteurs de notre site web est très importante à nos yeux, et nous nous engageons à la protéger. <!--Cette politique détaille ce que nous faisons de vos informations personnelles.<br> Consentir à notre utilisation de
+        cookies en accord avec cette politique lors de votre première visite de notre site web nous permet d’utiliser des cookies à chaque fois que vous consultez notre site.--><br>
         <br>
         <b>2. Source</b> <br>
         <br> Ce document a été créé grâce à un modèle de SEQ Legal (seqlegal.com)<br> et a été modifié par Website Planet (www.websiteplanet.com)
