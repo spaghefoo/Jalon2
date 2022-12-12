@@ -4,6 +4,11 @@
     {
         background-color:white;
     }
+    td
+    {
+        padding:20px;
+        margin:3px;
+    }
 </style>
 <link rel="stylesheet" href="./css/destinations.css" type="text/css" />
 <section>
@@ -12,9 +17,9 @@
             <!--- sofiane - formulaire de recherche à faire plus tard psk j'ai la flemme et pas le tps la -->
             <form autocomplete="off" id="truc" action="?action=destinations" method="POST">
                 <div class="autocomplete" id="auto">   
-                    <input type='text' name='desti' placeholder="Rechercher une destination, un secteur..." />
+                    <input type='text' name='desti' class="destination" placeholder="Rechercher une destination, un secteur..." />
                     <input type='submit' />
-                    <div id="elements">
+                    <div id="elements" class='destination' class="test">
                     
                     </div>
                 </div>
@@ -22,12 +27,12 @@
         <table>
             <tbody>
     <?php
-        if(!empty($_POST))
+        if(!empty($destination))
         {
             ?>
             <thead>
                 <tr>
-                    <td>Numéro de la traversée</td>
+                    <td>Numéro</td>
                     <td>Date</td>
                     <td>Heure</td>
                     <td>Distance(Miles marins)</td>
@@ -37,12 +42,27 @@
             </thead>
             <tbody>
             <?php
+            $button = "";
+            if(isLoggedOn())
+            {
+                $ret = true;
+                $button = "Reservable";
+            }
             for($i = 0; $i < count($destination); $i++)
             {
                 echo '<tr>';
                 echo '<td>'.$destination[$i]['numeroTraversee'].'</td><td>'.$destination[$i]['dateTraversee'].'</td><td>'.$destination[$i]['heureTraversee'].'</td><td>'.$destination[$i]['DistanceEnMillesMarin'].'</td><td>'.$destination[$i]['libelleDepart'].'</td><td>'.$destination[$i]['libelleArrivee'].'</td>';
                 echo '</tr>';
             }
+        }
+        else
+        {
+            echo '
+            <tr>
+            <td>
+                Aucune destination trouvée.
+            </td>
+            </tr>';
         }
     ?> 
             </tbody>

@@ -37,13 +37,10 @@ function getTraverseesBynumero($numero)
     try
     {
     $co = connexionPDO();
-    $co->prepare("SELECT * FROM traversee WHERE numeroTraversee = ?");
-    $co->execute([$numero]);
-
-    while($tableau = $request->fetch(PDO::FETCH_ASSOC))
-    {
-        $traversee[] = $tableau;
-    }
+    $prepare = $co->prepare("SELECT * FROM traversee WHERE numeroTraversee = ?");
+    $prepare->bindValue($numero, PDO::PARAM_INT);
+    $prepare->execute();
+    $traversee = $prepare->fetch(PDO::FETCH_ASSOC);
     }
     catch(PDOException $e)
     {
@@ -63,8 +60,9 @@ function getAllTraverseesBySecteur($secteur)
     {
         $co = connexionPDO();
         //sofiane - REMPLACER PAR UNE VUE EN VRAI CA SERAIT MIEUX JE PENSE!!!!!!!!!!!!!!!
-        $prepare =$co->prepare('SELECT traversee.numeroTraversee, traversee.dateTraversee, traversee.heureTraversee, liaison.DistanceEnMillesMarin, secteur.nomSecteur, portDepart.libellePort AS libelleDepart, portArrivee.libellePort AS libelleArrivee FROM traversee, liaison INNER JOIN secteur ON secteur.nomSecteur LIKE :sect INNER JOIN port AS portDepart ON liaison.idPort = portDepart.idPort INNER JOIN port AS portArrivee ON liaison.IdPort_1 = portArrivee.IdPort');
+        $prepare =$co->prepare('SELECT traversee.numeroTraversee, traversee.CodeLiaison, liaison.CodeLiaison, traversee.dateTraversee, traversee.heureTraversee, liaison.DistanceEnMillesMarin, secteur.nomSecteur, portDepart.libellePort AS libelleDepart, portArrivee.libellePort AS libelleArrivee FROM traversee, liaison INNER JOIN secteur ON secteur.nomSecteur LIKE :sect AND liaison.IdSecteur = secteur.IdSecteur INNER JOIN port AS portDepart ON liaison.idPort = portDepart.idPort INNER JOIN port AS portArrivee ON liaison.IdPort_1 = portArrivee.IdPort WHERE traversee.dateTraversee > :date');
         $prepare->bindValue(":sect", $secteur, PDO::PARAM_STR);
+        $prepare->bindValue(":date", date('Y-m-d'));
         $prepare->execute();
         $fetch =  $prepare->fetchAll(PDO::FETCH_ASSOC);
     }

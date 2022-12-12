@@ -18,37 +18,38 @@ input[type="submit"]
     transform: translateX(-50%);
 }
 
+
 #elements
 {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: white;
-    color: #111111;
-    border-radius: 10px;
-    float:left;
-    width:80%;
-    text-align:left;
-    margin-bottom:2px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-
-.autocomplete
-{
-    margin-top:15px;
-    height:50vh;
+    background-color:white;
+    margin-bottom: 5px;
 }
 
 .suggestion
 {
     padding:8px;
+}
 
+table
+{
+    border-radius: 2px;
+    padding:10px;
 }
 
 li
 {
     list-style: none;
     font-weight: bold; /* permet de rendre le texte gras */    
+}
+
+tr:nth-child(even)
+{
+    background-color:#ededed;
+}
+
+thead
+{
+    background-color:#956a95 !important; 
+    color:white !important;
+    font-weight: bold !important;
 }

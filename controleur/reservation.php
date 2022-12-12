@@ -1,5 +1,5 @@
-// Détail d'une réservation
 <?php
+// Détail d'une réservation
 if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     $racine = "..";   
 } // 1 - permet de naviguer entre les dossiers
