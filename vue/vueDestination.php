@@ -32,13 +32,6 @@
 </style>
 <link rel="stylesheet" href="./css/destinations.css" type="text/css" />
 <section>
-
-    <form autocomplete="off" id="truc" action="?action=destinations" method="POST">
-        <div class="autocomplete" id="auto">
-            <input type='text' id="destination_text" name='desti' class="destination" placeholder="Rechercher une destination, un secteur..." />
-            <input type='submit' id="destination_submit" />
-            <div id="elements" class='destination' class="test">
-
             <!--- sofiane - formulaire de recherche à faire plus tard psk j'ai la flemme et pas le tps la -->
             <form autocomplete="off" id="truc" action="?action=destinations" method="POST">
                 <div class="autocomplete" id="auto">   
