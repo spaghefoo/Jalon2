@@ -9,11 +9,11 @@
             <div class="content">
                 <form id="centre" action="./?action=connexion" method="POST">
                     <p>Email</p>
-                    <input type="text" id="id_text" name="mailU" placeholder="" /> <br /><br />
+                    <input type="text" id="connexion_text" name="mailU" placeholder="" /> <br /><br />
 
                     <p>Password</p>
-                    <input type="password" name="mdpU" placeholder="" /> <br /><br />
-                    <input type="submit" />
+                    <input type="password" id="connexion_password" name="mdpU" placeholder="" /> <br /><br />
+                    <input type="submit" id="connexion_submit" />
                 </form>
                 <br><br>
                 <p>Pas de compte ? <a href="?action=inscription"><b>Inscription</b></a></p>
