@@ -293,3 +293,99 @@ p {
 #connexion_submit{
     padding: 5px 5px;
 }
+
+
+#destination_text
+{
+    width:55vw;
+    height:2em;
+    margin:0;
+}
+#destination_submit
+{
+    background-color:lightblue;
+    height:2em;
+    width:5em;
+    margin:0;
+    border-radius: 20px;
+    transform: translateX(-50%);
+}
+
+#elements
+{
+    background-color:white;
+    margin-bottom: 5px;
+}
+
+.suggestion
+{
+    padding:8px;
+}
+
+table
+{
+    border-radius: 2px;
+    padding:10px;
+}
+
+li
+{
+    list-style: none;
+    font-weight: bold; /* permet de rendre le texte gras */    
+}
+
+tr:nth-child(even)
+{
+    background-color:#ededed;
+}
+
+thead
+{
+    background-color:#956a95 !important; 
+    color:white !important;
+    font-weight: bold !important;
+}
+
+#menuGeneral
+{
+    /* background-color: rgba(217, 217, 217, 0.5);*/
+    background-color: rgba(5,47,102,255);
+    display: inline-flex;
+    width:100%;
+    list-style: none;
+    position: sticky;
+}
+
+.connexion
+{
+    
+    border-radius: 35px;
+    color: white;
+    padding:12px;
+    background-color: #4D88FF;
+}
+
+#reservations {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#reservations td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#reservations tr:nth-child(even){background-color: #f2f2f2;}
+
+#reservations tr:hover {background-color: #ddd;}
+
+#reservations th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+
