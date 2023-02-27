@@ -1,13 +1,12 @@
-<script src="js/search.js" ></script>
+<script src="js/search.js"></script>
 <style>
-    table
-    {
-        background-color:white;
+    table {
+        background-color: white;
     }
-    td
-    {
-        padding:20px;
-        margin:3px;
+
+    td {
+        padding: 20px;
+        margin: 3px;
     }
 
     a.connected
@@ -34,6 +33,11 @@
 <link rel="stylesheet" href="./css/destinations.css" type="text/css" />
 <section>
 
+    <form autocomplete="off" id="truc" action="?action=destinations" method="POST">
+        <div class="autocomplete" id="auto">
+            <input type='text' id="destination_text" name='desti' class="destination" placeholder="Rechercher une destination, un secteur..." />
+            <input type='submit' id="destination_submit" />
+            <div id="elements" class='destination' class="test">
 
             <!--- sofiane - formulaire de recherche à faire plus tard psk j'ai la flemme et pas le tps la -->
             <form autocomplete="off" id="truc" action="?action=destinations" method="POST">
@@ -97,13 +101,13 @@
                 Aucune destination trouvée.
             </td>
             </tr>';
-        }
-    ?> 
-            </tbody>
-        </table>
+            }
+        ?>
+        </tbody>
+    </table>
 
-        </div>
+    </div>
 </section>
 <script>
-        autoComplete(document.getElementById('truc'));
+    autoComplete(document.getElementById('truc'));
 </script>
