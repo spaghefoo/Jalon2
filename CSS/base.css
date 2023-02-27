@@ -280,16 +280,16 @@ p {
     color: #241c69;
 }
 
-{
+#connexion_text{
     padding: 3px 3px;
     text-align: center;
 }
 
-[type='password']{
+#connexion_password{
     padding: 3px 3px;
     text-align: center;
 }
 
-[type='submit']{
+#connexion_submit{
     padding: 5px 5px;
 }
