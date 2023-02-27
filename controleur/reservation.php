@@ -3,7 +3,7 @@
 if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     $racine = "..";   
 } // 1 - permet de naviguer entre les dossiers
-include_once "$racine/modele/reservation.inc";
+include_once "$racine/modele/reservation.inc.php";
 
 // 2 - recuperation des donnees GET, POST, et SESSION
 if (isset($_GET["idReservation"])){

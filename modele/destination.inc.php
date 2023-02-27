@@ -36,11 +36,11 @@ function getTraverseesBynumero($numero)
     // A COMPLETER AS WELL
     try
     {
-    $co = connexionPDO();
-    $prepare = $co->prepare("SELECT * FROM traversee WHERE numeroTraversee = ?");
-    $prepare->bindValue($numero, PDO::PARAM_INT);
-    $prepare->execute();
-    $traversee = $prepare->fetch(PDO::FETCH_ASSOC);
+        $co = connexionPDO();
+        $prepare = $co->prepare("SELECT * FROM traversee WHERE numeroTraversee = ?");
+        $prepare->bindValue($numero, PDO::PARAM_INT);
+        $prepare->execute();
+        $traversee = $prepare->fetch(PDO::FETCH_ASSOC);
     }
     catch(PDOException $e)
     {
@@ -77,4 +77,24 @@ function getAllTraverseesBySecteur($secteur)
     return $fetch;
 }
 
+function getPlacesDisponiblesById($id)
+{
+    try
+    {
+        $co = connexionPDO();
+        $sql = "SELECT SUM(Quantite) FROM stocker WHERE idType = A2";
+        $prepare = $co->prepare($sql);
+        $prepare->execute();
+        $fetch = $prepare->fetch();
+    }
+    catch(PDOException $e)
+    {
+        return $e->getMessage();
+    }
+    finally
+    {
+        $co = null;
+    }
+    return $fetch;
+}
 ?>

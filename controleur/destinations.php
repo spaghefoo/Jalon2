@@ -14,7 +14,7 @@ if(!empty($_POST))
 // 3 - appel des fonctions permettant de recuperer les donnees utiles a l'affichage    
 if(!empty($_POST))
 {
-$destination = getAllTraverseesBySecteur($desti);
+    $destination = getAllTraverseesBySecteur($desti);
 }
 // 4 - traitement si necessaire des donnees recuperees
 
