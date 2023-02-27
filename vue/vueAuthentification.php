@@ -10,7 +10,7 @@
         <div class="content">
             <form id="centre" action="./?action=connexion" method="POST">
                 <p>Email</p>
-                <input type="text" name="mailU" placeholder="" /> <br /><br />
+                <input type="text" id="id_text" name="mailU" placeholder="" /> <br /><br />
 
                 <p>Password</p>
                 <input type="password" name="mdpU" placeholder="" /> <br /><br />
