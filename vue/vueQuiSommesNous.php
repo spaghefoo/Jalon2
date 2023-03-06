@@ -1,10 +1,3 @@
-<!--Ici nous affichons qui sommes nous (information qui concerne MarieTeam) : qui est MarieTeam et que fait t'elle-->
-
-<!--<style>
-    text-center {
-        text-align: center;
-    }
-</style>-->
 <section class="section">
     <div style="text-align:center"><b><u>QUI SOMMES NOUS ?</u></b>
         <br>

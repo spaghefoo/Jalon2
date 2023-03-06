@@ -3,11 +3,8 @@
 @CHARSET "UTF-8";
 
 body {
-    /* sofiane - manquait un ../ du coup je l'ai rajouté sinon ça marchait pas */
     background-image: url("../images/ship-boat-sea-vehicle-blue-cruise-ship-519479-wallhere.com.jpg");
 }
-
-/* AJOUT GALDRIC */
 
 
 /*
@@ -168,7 +165,6 @@ body {
     margin-top: 3rem;
 }
 
-
 .substack {
     border: 1px solid #EEE;
     background-color: #fff;
@@ -205,7 +201,6 @@ body {
 }
 
 footer {
-
     border-radius: 35px;
     color: white;
     padding: 12px;
@@ -213,6 +208,27 @@ footer {
 }
 
 .section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 90px 30px;
+    background-color: #cdd8ff;
+    opacity: 0.8;
+    text-align: left;
+
+    h2 {
+        font-size: 3em;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    p {
+        line-height: 1.625em;
+        margin: 0 auto;
+        max-width: 480px;
+    }
+}
+
+.sectionDestination {
     max-width: 900px;
     margin: 60px auto;
     padding: 90px 30px;
@@ -286,7 +302,7 @@ footer {
 
 /* Destination  */
 #destination_text {
-    width: 55vw;
+    width: 105vw;
     height: 2em;
     margin: 0;
 }
@@ -352,7 +368,6 @@ thead {
 }
 
 .connexion {
-
     border-radius: 35px;
     color: white;
     padding: 12px;
