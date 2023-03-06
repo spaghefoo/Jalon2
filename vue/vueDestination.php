@@ -1,44 +1,11 @@
 <script src="js/search.js"></script>
-<style>
-    table {
-        background-color: white;
-    }
-
-    td {
-        padding: 20px;
-        margin: 3px;
-    }
-
-    a.connected
-    {
-        background-color:#4D88FF;
-        border-radius:20px;
-
-    }
-    a.notconnected
-    {
-        background-color:#8a889b;
-        border-radius:20px;
-    }
-    a
-    {
-        color:white;
-        padding-top:3px;
-        padding-bottom:3px;
-        padding-left:18px;
-        padding-right:18px; 
-    }
-
-</style>
-<link rel="stylesheet" href="./css/destinations.css" type="text/css" />
-<section>
-            <!--- sofiane - formulaire de recherche à faire plus tard psk j'ai la flemme et pas le tps la -->
+<section class="section">
             <form autocomplete="off" id="truc" action="?action=destinations" method="POST">
-                <div class="autocomplete" id="auto">   
-                    <input type='text' name='desti' class="destination" placeholder="Rechercher une destination, un secteur..." />
+                <div class="autocomplete" id="auto">
+                    <input type='text' name='desti' class="destination_text" placeholder="Rechercher une destination, un secteur..." />
                     <input type='submit' />
                     <div id="elements" class='destination' class="test">
-                    
+
                     </div>
                 </div>
             </form>
@@ -64,7 +31,6 @@
             $button = "";
             if(isLoggedOn())
             {
-                //$ret = true;
                 $button = "Détails";
                 $class = 'connected';
             }
@@ -101,6 +67,7 @@
 
     </div>
 </section>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <script>
     autoComplete(document.getElementById('truc'));
 </script>
