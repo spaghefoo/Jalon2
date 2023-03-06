@@ -12,6 +12,7 @@ function getTraversees()
     $traversees = array();
     $co = connexionPDO();  
     $request = $co->query("SELECT * FROM traversee");
+    
 
 
     while($tableau = $request->fetch(PDO::FETCH_ASSOC))
@@ -77,15 +78,50 @@ function getAllTraverseesBySecteur($secteur)
     return $fetch;
 }
 
-function getPlacesDisponiblesById($id)
+function getPlacesDisponiblesById($id, $type, $sousCategorie)
 {
+    /*
+
+    Cette fonction prend un nombre qui correspond au numeroTraversee
+    une lettre(correspond au type(Passages, vehicules etc...))
+    et un chiffre(sous-catégorie: adulte, enfants,, vehicules inferieur a 2 metres...)
+    puis retourne le resultat de la requete sql.
+    */
     try
     {
+        $complet = $type.$sousCategorie; // A2.
         $co = connexionPDO();
-        $sql = "SELECT SUM(Quantite) FROM stocker WHERE idType = A2";
+        $sql = "SELECT SUM(stocker.Quantite) as quantite, traversee.idBateau as Bateau FROM stocker INNER JOIN reservation ON stocker.idReservation = reservation.IdReservation INNER JOIN traversee ON reservation.numeroTraversee = traversee.numeroTraversee AND traversee.numeroTraversee = :id WHERE stocker.IdType = :idType"; 
         $prepare = $co->prepare($sql);
+        $prepare->bindValue(":id", $id);
+        $prepare->bindValue(":idType", $complet);
         $prepare->execute();
-        $fetch = $prepare->fetch();
+        $fetch = $prepare->fetch(PDO::FETCH_ASSOC);
+
+
+        if($fetch['quantite'] == NULL)
+        {
+            $qte_pris = 0;
+        }
+        else
+        {
+            $qte_pris = $fetch['quantite'];
+        }
+
+        // nombre de places restantes dans le bateau du trajet
+
+        $sql = "SELECT IdType , IdBateau, QuantiteMaxDisponible as maxdisp FROM contenir WHERE IdType = :idType AND IdBateau = :bateau";
+        $prepare = $co->prepare($sql);
+        $prepare->bindValue(":idType", $complet);
+        $prepare->bindValue(":bateau", $fetch['Bateau']);
+        $prepare->execute();
+        $fetch_qte_max = $prepare->fetch(PDO::FETCH_ASSOC);
+                    
+        $qte_max = $fetch_qte_max['maxdisp'];
+      
+        print_r($fetch_qte_max);
+        print_r($fetch);
+
     }
     catch(PDOException $e)
     {
@@ -95,6 +131,10 @@ function getPlacesDisponiblesById($id)
     {
         $co = null;
     }
-    return $fetch;
+   
+    return $qte_max - $qte_pris;
 }
+
+//echo 'Catégorie A3 numeroTraversée 1: places restantes';
+//print_r(getPlacesDisponiblesById(1, "A", 2));
 ?>

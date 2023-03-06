@@ -1,5 +1,8 @@
 <?php
 include_once "bd.inc.php";
+// pour setReservation...(verifier l'utilisateur etc.)
+include_once "authen.inc.php";
+include_once "utilisateur.inc.php";
 
 function getReservation($idReservation){
     $resultat = array();
@@ -84,4 +87,57 @@ function getDetailReservationById($idReservation){
         die();
     } return $resultat;
 }
+
+function setReservation($date ,$traversee, $qte, $categorie, $subcategorie)
+{
+    try
+    {
+        
+        $currentUser = getMailULoggedOn();
+        $idClient = getUtilisateurByMailU($currentUser)['IdClient'];
+        $co = connexionPDO();
+        // on recupere l'utilisateur actuellement connecté.
+
+        $sql = "INSERT INTO reservation VALUES(0,:date, :idclient, :numerotraversee)";
+
+        $prepare = $co->prepare($sql);
+        $prepare->bindValue(':date', $date);
+        $prepare->bindValue(':idclient', $idClient, PDO::PARAM_INT);
+        $prepare->bindValue(':numerotraversee', $traversee, PDO::PARAM_INT);
+        $prepare->execute();
+
+        
+
+        switch($categorie)
+        {
+            case 1:
+                $cate_lettre = 'A';
+                break;
+            case 2:
+                $cate_lettre = 'B';
+                break;
+            case 3:
+                $cate_lettre = 'C';
+                break;
+        }
+
+        $full_type = $cate_lettre.$subcategorie;
+        $sql_stocker = "INSERT INTO stocker VALUES(:idCategorie, :idType, :idreserv, :qte)";
+        $prepare = $co->prepare($sql);
+        $prepare->bindValue(':idCategorie', $categorie, PDO::PARAM_INT);
+        $prepare->bindValue(':idType', $full_type);
+        $prepare->bindValue(':idreserv');
+        $prepare->bindValue(':qte', $qte, PDO::PARAM_INT);
+
+    }
+    catch(Exception $e)
+    {
+        echo "ERREUR:".$e->getMessage();
+    }
+    finally
+    {
+        $co = null;
+    }
+}
+
 ?>
