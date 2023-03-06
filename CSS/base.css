@@ -1,6 +1,7 @@
 /* Inspiré de : https://codepen.io/melnik909/pen/VQOodQ */
 
 @CHARSET "UTF-8";
+
 body {
     /* sofiane - manquait un ../ du coup je l'ai rajouté sinon ça marchait pas */
     background-image: url("../images/ship-boat-sea-vehicle-blue-cruise-ship-519479-wallhere.com.jpg");
@@ -15,16 +16,16 @@ DEPENDENCES
 =====
 */
 
-.r-link{
+.r-link {
     display: var(--rLinkDisplay, inline-flex) !important;
 }
 
-.r-link[href]{
+.r-link[href] {
     color: var(--rLinkColor) !important;
     text-decoration: var(--rLinkTextDecoration, none) !important;
 }
 
-.r-list{
+.r-list {
     padding-left: var(--rListPaddingLeft, 0) !important;
     margin-top: var(--rListMarginTop, 0) !important;
     margin-bottom: var(--rListMarginBottom, 0) !important;
@@ -38,11 +39,11 @@ CORE STYLES
 =====
 */
 
-.menu{
+.menu {
     --rLinkColor: var(--menuLinkColor, currentColor);
 }
 
-.menu__link{
+.menu__link {
     display: var(--menuLinkDisplay, block);
 }
 
@@ -50,7 +51,7 @@ CORE STYLES
 focus state
 */
 
-.menu__link:focus{
+.menu__link:focus {
     outline: var(--menuLinkOutlineWidth, 2px) solid var(--menuLinkOutlineColor, currentColor);
     outline-offset: var(--menuLinkOutlineOffset);
 }
@@ -59,7 +60,7 @@ focus state
 fading siblings
 */
 
-.menu:hover .menu__link:not(:hover){
+.menu:hover .menu__link:not(:hover) {
     --rLinkColor: var(--menuLinkColorUnactive, rgba(22, 22, 22, .35));
 }
 
@@ -69,16 +70,16 @@ PRESENTATION STYLES
 =====
 */
 
-.menu{
+.menu {
     background-color: var(--menuBackgroundColor, #f0f0f0);
     box-shadow: var(--menuBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
 }
 
-.menu__list{
+.menu__list {
     display: flex;
 }
 
-.menu__link{
+.menu__link {
     padding: var(--menuLinkPadding, 1.5rem 2.5rem);
     font-weight: 700;
     text-transform: uppercase;
@@ -90,7 +91,7 @@ TEXT UNDERLINED
 =====
 */
 
-.text-underlined{
+.text-underlined {
     position: relative;
     overflow: hidden;
 
@@ -99,7 +100,7 @@ TEXT UNDERLINED
 }
 
 .text-underlined::before,
-.text-underlined::after{
+.text-underlined::after {
     content: "";
     width: 0;
     height: 3px;
@@ -112,18 +113,18 @@ TEXT UNDERLINED
     bottom: 0;
 }
 
-.text-underlined::before{
+.text-underlined::before {
     left: 50%;
     transform: translateX(-50%);
 }
 
-.text-underlined::after{
+.text-underlined::after {
     right: 50%;
     transform: translateX(50%);
 }
 
 .text-underlined:hover::before,
-.text-underlined:hover::after{
+.text-underlined:hover::after {
     width: 100%;
     transition-duration: .2s;
 }
@@ -134,7 +135,7 @@ SETTINGS
 =====
 */
 
-.page__custom-settings{
+.page__custom-settings {
     --menuBackgroundColor: #6c5ce7;
     --menuLinkColor: #fff;
     --menuLinkColorUnactive: #241c69;
@@ -147,15 +148,15 @@ DEMO
 =====
 */
 
-body{
+body {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
     margin: 0;
-/*    min-height: 100vh; */
+    /*    min-height: 100vh; */
     display: flex;
     flex-direction: column;
 }
 
-.page{
+.page {
     box-sizing: border-box;
     max-width: 1024px;
     padding-left: .75rem;
@@ -163,28 +164,29 @@ body{
     margin: auto;
 }
 
-.page__menu:nth-child(n+2){
+.page__menu:nth-child(n+2) {
     margin-top: 3rem;
 }
 
 
-.substack{
-    border:1px solid #EEE;
+.substack {
+    border: 1px solid #EEE;
     background-color: #fff;
     width: 100%;
     max-width: 480px;
     height: 280px;
-    margin: 1rem auto;;
+    margin: 1rem auto;
+    ;
 }
 
-.linktr{
+.linktr {
     display: flex;
     justify-content: flex-end;
     padding: 2rem;
     text-align: center;
 }
 
-.linktr__goal{
+.linktr__goal {
     background-color: rgb(209, 246, 255);
     color: rgb(8, 49, 112);
     box-shadow: rgb(8 49 112 / 24%) 0px 2px 8px 0px;
@@ -192,7 +194,7 @@ body{
     padding: .75rem 1.5rem;
 }
 
-.r-link{
+.r-link {
     --uirLinkDisplay: var(--rLinkDisplay, inline-flex);
     --uirLinkTextColor: var(--rLinkTextColor);
     --uirLinkTextDecoration: var(--rLinkTextDecoration, none);
@@ -201,12 +203,12 @@ body{
     color: var(--uirLinkTextColor) !important;
     text-decoration: var(--uirLinkTextDecoration) !important;
 }
-footer
-{
+
+footer {
 
     border-radius: 35px;
     color: white;
-    padding:12px;
+    padding: 12px;
     background-color: #4D88FF;
 }
 
@@ -218,150 +220,142 @@ footer
     opacity: 0.8;
     text-align: left;
 
-h2 {
-    font-size: 3em;
-    margin-bottom: 15px;
-    text-align: center;
-}
-p {
-    line-height: 1.625em;
-    margin: 0 auto;
-    max-width: 480px;
-}
+    h2 {
+        font-size: 3em;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    p {
+        line-height: 1.625em;
+        margin: 0 auto;
+        max-width: 480px;
+    }
 }
 
+/* Connexion */
 .container {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1000px;
     flex-wrap: wrap;
     z-index: 1;
-    top: 25%; left: 50%; /* à 50%/50% du parent référent */
-    transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+    top: 25%;
+    left: 50%;
+    /* à 50%/50% du parent référent */
+    transform: translate(-50%, -50%);
+    /* décalage de 50% de sa propre taille */
 }
 
-.container .card {
-    position: relative;
-    width: 380px;
-    height: 300px;
-    margin: 200px;
-    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-    background: 255,255,255,0.1;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    border-left: 1px solid rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(5px);
-}
-
-.container .card .content {
-    padding: 20px;
+.container .content {
+    padding: 10px;
     text-align: center;
     transition: 0.5s;
 }
 
-.container .card .content p{
+.container .content p {
     font-size: 1.5em;
     color: black;
 }
 
-#connexionTitre{
+#connexionTitre {
     text-align: center;
     font-size: 20px;
     margin-left: auto;
     margin-right: auto;
-    width: 14%;
+    width: 50%;
     margin-top: 10%;
     color: #241c69;
 }
 
-#connexion_text{
+#connexion_text {
     padding: 3px 3px;
     text-align: center;
 }
 
-#connexion_password{
+#connexion_password {
     padding: 3px 3px;
     text-align: center;
 }
 
-#connexion_submit{
+#connexion_submit {
     padding: 5px 5px;
 }
 
-
-#destination_text
-{
-    width:55vw;
-    height:2em;
-    margin:0;
+/* Destination  */
+#destination_text {
+    width: 55vw;
+    height: 2em;
+    margin: 0;
 }
-#destination_submit
-{
-    background-color:lightblue;
-    height:2em;
-    width:5em;
-    margin:0;
+
+#destination_submit {
+    background-color: lightblue;
+    height: 2em;
+    width: 5em;
+    margin: 0;
     border-radius: 20px;
     transform: translateX(-50%);
 }
 
-#elements
-{
-    background-color:white;
+#elements {
+    background-color: white;
     margin-bottom: 5px;
 }
 
-.suggestion
-{
-    padding:8px;
+.suggestion {
+    padding: 8px;
 }
 
-table
-{
+table {
+    background-color: white;
     border-radius: 2px;
-    padding:10px;
+    padding: 10px;
 }
 
-li
-{
+a.connected {
+    background-color: #4D88FF;
+    border-radius: 20px;
+
+}
+
+a.notconnected {
+    background-color: #8a889b;
+    border-radius: 20px;
+}
+
+li {
     list-style: none;
-    font-weight: bold; /* permet de rendre le texte gras */    
+    font-weight: bold;
+    /* permet de rendre le texte gras */
 }
 
-tr:nth-child(even)
-{
-    background-color:#ededed;
+tr:nth-child(even) {
+    background-color: #ededed;
 }
 
-thead
-{
-    background-color:#956a95 !important; 
-    color:white !important;
+thead {
+    background-color: #956a95 !important;
+    color: white !important;
     font-weight: bold !important;
 }
 
-#menuGeneral
-{
+#menuGeneral {
     /* background-color: rgba(217, 217, 217, 0.5);*/
-    background-color: rgba(5,47,102,255);
+    background-color: rgba(5, 47, 102, 255);
     display: inline-flex;
-    width:100%;
+    width: 100%;
     list-style: none;
     position: sticky;
 }
 
-.connexion
-{
-    
+.connexion {
+
     border-radius: 35px;
     color: white;
-    padding:12px;
+    padding: 12px;
     background-color: #4D88FF;
 }
 
@@ -371,14 +365,19 @@ thead
     width: 100%;
 }
 
-#reservations td, #customers th {
+#reservations td,
+#customers th {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-#reservations tr:nth-child(even){background-color: #f2f2f2;}
+#reservations tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
 
-#reservations tr:hover {background-color: #ddd;}
+#reservations tr:hover {
+    background-color: #ddd;
+}
 
 #reservations th {
     padding-top: 12px;
@@ -387,5 +386,3 @@ thead
     background-color: #04AA6D;
     color: white;
 }
-
-
