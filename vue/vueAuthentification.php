@@ -7,7 +7,7 @@
     <div class="container">
         <div class="content">
             <form id="centre" action="./?action=connexion" method="POST">
-                <br><br> Email <br>
+                <br><br>Email <br>
                 <input type="text" id="connexion_text" name="mailU" placeholder="" /> <br /><br />
 
                 Password <br>
