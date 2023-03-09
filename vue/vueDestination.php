@@ -67,7 +67,7 @@
 
     </div>
 </section>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
 <script>
     autoComplete(document.getElementById('truc'));
 </script>

@@ -1,6 +1,6 @@
 <!--<meta http-equiv="refresh" content="3">-->
 
-<section class="section">
+<section class="sectionConnexion" style="height : 400px">
     <div id="connexionTitre">
         <h1>Connexion</h1> <br><br><br><br><br>
     </div>

@@ -3,3 +3,4 @@
 
     <a href="?action=reservation">RESERVER</a>
 </section> 
+<br><br><br><br><br><br><br><br>

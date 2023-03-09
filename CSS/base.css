@@ -204,7 +204,10 @@ footer {
     border-radius: 35px;
     color: white;
     padding: 12px;
+    margin: 0px 480px;
     background-color: #4D88FF;
+    max-width: 520px;
+    
 }
 
 .section {
@@ -214,18 +217,14 @@ footer {
     background-color: #cdd8ff;
     opacity: 0.8;
     text-align: left;
+}
 
-    h2 {
-        font-size: 3em;
-        margin-bottom: 15px;
-        text-align: center;
-    }
-
-    p {
-        line-height: 1.625em;
-        margin: 0 auto;
-        max-width: 480px;
-    }
+.sectionConnexion {
+    max-width: 900px;
+    margin: 60px auto;
+    background-color: #cdd8ff;
+    opacity: 0.8;
+    text-align: left;
 }
 
 .sectionDestination {
@@ -235,18 +234,6 @@ footer {
     background-color: #cdd8ff;
     opacity: 0.8;
     text-align: left;
-
-    h2 {
-        font-size: 3em;
-        margin-bottom: 15px;
-        text-align: center;
-    }
-
-    p {
-        line-height: 1.625em;
-        margin: 0 auto;
-        max-width: 480px;
-    }
 }
 
 /* Connexion */
@@ -255,10 +242,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1000px;
+    max-width: 700px;
     flex-wrap: wrap;
     z-index: 1;
-    top: 25%;
+    top: 15%;
     left: 50%;
     /* à 50%/50% du parent référent */
     transform: translate(-50%, -50%);
@@ -281,8 +268,8 @@ footer {
     font-size: 20px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: -70px;
     width: 50%;
-    margin-top: 10%;
     color: #241c69;
 }
 
