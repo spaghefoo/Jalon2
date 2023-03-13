@@ -204,9 +204,15 @@ footer {
     border-radius: 35px;
     color: white;
     padding: 12px;
-    margin: 0px 480px;
-    background-color: #4D88FF;
+    background-color: #6c5ce7;
     max-width: 520px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 480px) {
+    footer {
+        margin: 0px 10px;
+    }
 }
 
 .section {
