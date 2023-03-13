@@ -90,25 +90,11 @@ function getDetailReservationById($idReservation){
     } return $resultat;
 }
 
-function setReservation($date ,$traversee, $qte, $categorie, $subcategorie)
+function setReservation($date ,$traversee)
 {
     try
     {
        // print_r($idR);
-        switch($categorie)
-        {
-            case 1:
-                $cate_lettre = 'A';
-                break;
-            case 2:
-                $cate_lettre = 'B';
-                break;
-            case 3:
-                $cate_lettre = 'C';
-                break;
-        }
-        $full_type = $cate_lettre.$subcategorie;
-
         $currentUser = getMailULoggedOn(); // on recupere l'email de l'utilisateur connecté
         $idClient = getUtilisateurByMailU($currentUser)['IdClient']; //on recup l'id client de l'utilisateur connecté
         $co = connexionPDO();
@@ -131,20 +117,11 @@ function setReservation($date ,$traversee, $qte, $categorie, $subcategorie)
         $prepare_select->execute();
         $idR = $prepare_select->fetch(PDO::FETCH_ASSOC);
 
-      
 
-        //TODO: CHECK TO SEE THE NUMBER OF PLACES LEFT.
-        
-
-        $sql_stocker = "INSERT INTO stocker VALUES(:idCategorie, :idType, :idreserv, :qte)";
-        $prepare = $co->prepare($sql_stocker);
-        $prepare->bindValue(':idCategorie', $categorie, PDO::PARAM_INT);
-        $prepare->bindValue(':idType', $full_type);
-        $prepare->bindValue(':idreserv', $idR['IdReservation'], PDO::PARAM_INT);
-        $prepare->bindValue(':qte', $qte, PDO::PARAM_INT);
-        $prepare->execute();
-
-    
+        /**
+         * @todo CHECK TO SEE THE NUMBER OF PLACES LEFT.
+         * 
+         *  */
     
     }
     catch(Exception $e)
@@ -155,20 +132,88 @@ function setReservation($date ,$traversee, $qte, $categorie, $subcategorie)
     {
         $co = null;
     }
+    /**
+     * @return Le numero de la reservation qui bient juste d'être faite.
+     * 
+     */
+    return $idR['IdReservation'];
 }
 
-function getPrix($qte, $codeLiaison, $souscategorie)
+
+function setStocker($idReservation, $idcategorie, $idType, $qte)
 {
     try
     {
-        $categorie_final = 'A'.$souscategorie;
+        switch($idcategorie)
+        {
+            case 1:
+                $cate_lettre = 'A';
+                break;
+            case 2:
+                $cate_lettre = 'B';
+                break;
+            case 3:
+                $cate_lettre = 'C';
+                break;
+
+        }
+        $full_type = $cate_lettre.$idType;
         $co = connexionPDO();
-        $sql = "SELECT * FROM tarifer WHERE codeLiaison = :liaison AND idType = :categorie";
+
+        $sql = "INSERT INTO stocker VALUES(:idCategorie, :idType, :idReserv, :qte)";
+        $prepare = $co->prepare($sql);
+        $prepare->execute(
+            array(
+                ':idCategorie' => $idcategorie,
+                ':idType' => $full_type,
+                ':idReserv' => $idReservation,
+                ':qte' => $qte
+            )
+            );
+    }
+    catch(PDOException $e)
+    {
+        echo "ERREUR:".$e->getMessage();
+    }
+    finally
+    {
+        $co = null;
+    }
+}
+/**
+ * @param int $qte
+ * @param int $codeLiaison 
+ * @param int $categorie
+ * @param int $souscategorie
+ * @param int $periode
+ * @return float/double
+ */
+function getPrix($qte, $codeLiaison, $categorie, $souscategorie, $periode)
+{
+    try
+    {
+        switch($categorie)
+        {
+            case 1:
+                $cate_lettre = 'A';
+                break;
+            case 2:
+                $cate_lettre = 'B';
+                break;
+            case 3:
+                $cate_lettre = 'C';
+                break;
+        }
+        $categorie_final = $cate_lettre.$souscategorie;
+        $co = connexionPDO();
+        $sql = "SELECT * FROM tarifer WHERE CodeLiaison = :liaison AND IdType = :categorie AND IdPeriode = :periode";
         $prepare = $co->prepare($sql);
         $prepare->bindValue(':liaison', $codeLiaison);
-        $prepare->bindValue(':categorie', $souscategorie);
+        $prepare->bindValue(':categorie', $categorie_final);
+        $prepare->bindValue(':periode', $periode);
         $prepare->execute();
-        $prix = $prepare->fetch();
+        $prix = $prepare->fetch(PDO::FETCH_ASSOC);
+        //print_r($prix);
     }
     catch(PDOException $e)
     {
@@ -178,7 +223,7 @@ function getPrix($qte, $codeLiaison, $souscategorie)
     {
         $co = null; 
     }
-    return $prix * $qte;
+    return $prix['Tarif'] * $qte;
 }
 
 ?>

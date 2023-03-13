@@ -42,7 +42,7 @@ function getTraverseesBynumero($numero)
         $prepare->bindValue(':numero', $numero, PDO::PARAM_INT);
         $prepare->execute();
         $traversee = $prepare->fetch(PDO::FETCH_ASSOC);
-        print_r($traversee);
+        //print_r($traversee);
     }   
     catch(PDOException $e)
     {
@@ -183,7 +183,29 @@ function getPlacesDisponiblesById($id, $type, $sousCategorie)
     return $qte_max - $qte_pris;
 }
 
+
+function getAllCategories()
+{
+
+    try
+    {
+        $co = connexionPDO();
+        $sql = "SELECT IdType FROM type";
+        $execute = $co->execute($sql);
+        $result = $execute->fetchAll(PDO::FETCH_NUM);
+    }
+    catch(PDOException $e)
+    {
+        echo "Erreur:".$e->getMessage();
+    }
+    finally
+    {
+        $co = null;
+    }
+    
+    return $result;
+}
 //print_r(getNbrPlacesTotalPerVoyage(1,1));
-echo 'Catégorie A3 numeroTraversée 1: places restantes';
-print_r(getPlacesDisponiblesById(1, "B", 1));
+//echo 'Catégorie A3 numeroTraversée 1: places restantes';
+//print_r(getPlacesDisponiblesById(1, "B", 1));
 ?>

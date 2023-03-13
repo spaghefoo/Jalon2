@@ -12,6 +12,8 @@ if(isLoggedOn())
 {
     $titre = "Marie team - Commande";
     $commande = getTraverseesBynumero($_GET['numeroTraversee']);
+    include("$racine/vue/entete.html.php");
+
     if(empty($_POST))
     {
         include("$racine/vue/commande.html.php");
@@ -20,13 +22,30 @@ if(isLoggedOn())
     {
         extract($_POST);
         //FINISH THIS.
-        setReservation($date, $_GET['numeroTraversee'], $a1, 1, 1);
-        setReservation($date, $_GET['numeroTraversee'], $a2, 1, 2);
-        setReservation($date, $_GET['numeroTraversee'], $a3, 1, 3);
-        setReservation($date, $_GET['numeroTraversee'], $b1, 2, 1);
-        setReservation($date, $_GET['numeroTraversee'], $b2, 2, 2);
+        if(empty($_GET['confirmation']))
+        {
+            if($prix = getPrix($a1, $commande['numeroTraversee'], 1, 1, 6) + getPrix($a2,$commande['numeroTraversee'], 1, 2, 6) + getPrix($a3,$commande['numeroTraversee'] ,1, 3, 6) + getPrix($b1,$commande['numeroTraversee'],2, 1, 6) + getPrix($b2,$commande['numeroTraversee'],2, 2, 6))
+            {
+                include("$racine/vue/prix.html.php");
+            }
+        }
+       // $categories = getAllCategories();
+        
+        /**
+         * @todo A CLEAN A DONF LA CEST PAS OUF AUCUNE GESTION DES ERREURS RIEN.(ET REMPLIR LA BDD POUR TOUT LES RESERVATIONS)
+         */
+        if(!$idR = setReservation($date, $_GET['numeroTraversee']))
+        {
+             echo "ERREUR!!!(placeholder)";
+             die();
+        }
+            setStocker($idR, 1,1, $a1);
+            setStocker($idR, 1,2, $a2);
+            setStocker($idR, 1,3, $a3);
+            setStocker($idR, 2,1, $b1);
+            setStocker($idR, 2,2, $b2);
+        
     }
-    include("$racine/vue/entete.html.php");
     include("$racine/vue/pied.html.php");
 
 }
