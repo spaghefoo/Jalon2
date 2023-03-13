@@ -1,5 +1,5 @@
 <section class='section'>
-    <h1>Détail de la réservation #<?php echo $idReservation?></h1><br>
+    <h1>Détail de la réservation <?php echo $idReservation?></h1><br><br><br><br><br><br>
     <div class='container'>
         <div class='content'>
             <?php
@@ -9,7 +9,6 @@
                 for ($i = 0; $i < count($listeDetailsReservation); $i++) {
                     echo "<tr>";
                     echo "<td>".$listeDetailsReservation[$i]['libelleCategorie']."</td>";
-                    // Galdric le lien n'est pas fait
                     echo    "<td><a href=./?action=detail-reservation&TypeTarif=".
                         $listeDetailsReservation[$i]['TypeTarif']." title='Cliquez pour les détails du tarif'>#".
                         $listeDetailsReservation[$i]['TypeTarif'].

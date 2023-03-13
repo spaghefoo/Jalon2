@@ -16,7 +16,7 @@
                 <li class="menu__group"><a href="./?action=qui-sommes-nous" class="menu__link r-link text-underlined">Qui sommes-nous ?</a></li>
                 <li class="menu__group"><a href="./?action=destinations" class="menu__link r-link text-underlined">Destinations</a></li>
                 <?php if (isLoggedOn()) { ?>
-                    <li class="menu__group"><a href="./?action=profil" class="menu__link r-link text-underlined">MonProfil</a></li>
+                    <li class="menu__group"><a href="./?action=profil" class="menu__link r-link text-underlined">Profil</a></li>
                 <?php } else { ?>
                     <li class="menu__group"><a href="./?action=connexion" class="menu__link r-link text-underlined">Connexion</a></li>
                 <?php } ?>
