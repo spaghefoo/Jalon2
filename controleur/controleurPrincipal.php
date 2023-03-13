@@ -2,7 +2,7 @@
 /** 
  * Controleur Principal
  * @author Galdric Tingaud - Theophane Legrand - Sofiane Acheraiou
- * 
+ * @author 
  * 
 */
 function controleurPrincipal($action){
