@@ -94,7 +94,7 @@ function setReservation($date ,$traversee, $qte, $categorie, $subcategorie)
 {
     try
     {
-        print_r($idR);
+       // print_r($idR);
         switch($categorie)
         {
             case 1:

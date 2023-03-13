@@ -13,10 +13,10 @@ if (isLoggedOn()) {
     $listeReservations = getReservationsIdUtilisateur($mailU);
 
 // 4 - traitement si necessaire des donnees recuperees
-    if(isset($_GET['reserver']))
-    {
-        setReservation(date('Y-m-d H:i:s'), 5, 20, 1, 2);
-    }
+    // if(isset($_GET['reserver']))
+    // {
+    //     setReservation(date('Y-m-d H:i:s'), 5, 20, 1, 2);
+    // }
 
 
 // 5 - appel du script de vue qui permet de gerer l'affichage des donnees

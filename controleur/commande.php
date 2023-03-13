@@ -11,7 +11,7 @@ include_once "$racine/modele/reservation.inc.php";
 if(isLoggedOn())
 {
     $titre = "Marie team - Commande";
-    $commande = getTraverseesBynumero($_GET['numeroD']);
+    $commande = getTraverseesBynumero($_GET['numeroTraversee']);
     if(empty($_POST))
     {
         include("$racine/vue/commande.html.php");
