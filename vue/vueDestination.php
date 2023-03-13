@@ -2,8 +2,8 @@
 <section class="section">
             <form autocomplete="off" id="truc" action="?action=destinations" method="POST">
                 <div class="autocomplete" id="auto">
-                    <input type='text' name='desti' class="destination_text" placeholder="Rechercher une destination, un secteur..." />
-                    <input type='submit' />
+                    <input type='text' name="desti" id="destination_text" placeholder="Rechercher une destination" />
+                    <input type='submit' id="destination_submit" />
                     <div id="elements" class='destination' class="test">
 
                     </div>
