@@ -17,6 +17,7 @@ else {
 if (isLoggedOn()) {
     $listeDetailsReservation = getDetailReservationById($idReservation);
 
+     
 // 4 - traitement si necessaire des donnees recuperees
 
 // 5 - appel du script de vue qui permet de gerer l'affichage des donnees

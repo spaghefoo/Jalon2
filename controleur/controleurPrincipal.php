@@ -1,4 +1,10 @@
 <?php
+/** 
+ * Controleur Principal
+ * @author Galdric Tingaud - Theophane Legrand - Sofiane Acheraiou
+ * 
+ * 
+*/
 function controleurPrincipal($action){
     $lesActions = array();
     // exemples de page a crée
