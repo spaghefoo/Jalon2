@@ -6,6 +6,10 @@ body {
     background-image: url("../images/ship-boat-sea-vehicle-blue-cruise-ship-519479-wallhere.com.jpg");
 }
 
+h1 {
+    text-align: center;
+    margin: 0 auto;
+}
 
 /*
 =====
@@ -201,7 +205,7 @@ body {
 }
 
 footer {
-    border-radius: 35px;
+    border-radius: 10px;
     color: white;
     padding: 12px;
     background-color: #6c5ce7;
@@ -244,6 +248,16 @@ footer {
     text-align: left;
 }
 
+
+.sectionMesReservation {
+    max-width: 900px;
+    border-radius: 10px;
+    margin: 60px auto;
+    background-color: #cdd8ff;
+    opacity: 0.8;
+    text-align: left;
+}
+
 /* Connexion */
 .container {
     position: relative;
@@ -258,6 +272,8 @@ footer {
     /* à 50%/50% du parent référent */
     transform: translate(-50%, -50%);
     /* décalage de 50% de sa propre taille */
+    margin-top: 140px; /* Ajout d'une marge pour espacer le contenu de la section */
+    margin-bottom: -95px;
 }
 
 .container .content {

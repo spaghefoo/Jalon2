@@ -1,6 +1,6 @@
-<section class="sectionConnexion" style="height : 400px">
+<section class="sectionConnexion" style="height : 350px">
     <div id="connexionTitre">
-        <h1>Connexion</h1> <br><br><br><br><br>
+        <br><h1>Connexion</h1> <br><br><br><br><br><br>
     </div>
     <div class="container">
         <div class="content">

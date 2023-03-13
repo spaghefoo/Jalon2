@@ -1,17 +1,15 @@
-<section class='section'>
-
-    <h1>Liste des réservations de <?php echo $mailU ?></h1><br>
+<section class='sectionMesReservation'>
     <div class='container'>
         <div class='content'>
-
+            <h1>Liste des réservations de <?php echo $mailU ?></h1>
             <?php
             if (count($listeReservations) > 0) {
                 echo "<table id='reservations'>";
-                echo "<tr><th>#Reservation</th><th>Date réservation</th><th>#Traversée</th><th>Date traversée</th><th>Port départ</th><th>Port arrivée</th></tr>";
+                echo "<tr><th>Reservation</th><th>Date réservation</th><th>Traversée</th><th>Date traversée</th><th>Port départ</th><th>Port arrivée</th></tr>";
                 for ($i = 0; $i < count($listeReservations); $i++) {
                     echo "<tr>";
                     echo    "<td><a href=./?action=detail-reservation&idReservation=" .
-                        $listeReservations[$i]['IdReservation'] . " title='Cliquez pour les détails de la reservation'>#" .
+                        $listeReservations[$i]['IdReservation'] . " title='Cliquez pour les détails de la reservation'>" .
                         $listeReservations[$i]['IdReservation'] .
                         "</a></td>";
                     echo "<td>" . $listeReservations[$i]['DateReservation'] . "</td>";
