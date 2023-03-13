@@ -78,6 +78,38 @@ function getAllTraverseesBySecteur($secteur)
     return $fetch;
 }
 
+
+
+function getNbrPlacesTotalPerVoyage($numeroTraversee, $categorie)
+{
+    try
+    {
+        $array = array();
+        $co = connexionPDO();
+        $query = "SELECT traversee.numeroTraversee, bateau.IdBateau, contenir.IdCategorie, contenir.IdType as Idcate, contenir.QuantiteMaxDisponible AS qte FROM traversee INNER JOIN bateau ON traversee.IdBateau = bateau.IdBateau INNER JOIN contenir ON bateau.IdBateau = contenir.idBateau AND contenir.IdCategorie = :idc WHERE numeroTraversee = :trav";
+        $prepare = $co->prepare($query);
+        $prepare->bindValue(':trav', $numeroTraversee);
+        $prepare->bindValue(':idc', $categorie);
+        $prepare->execute();
+        $result = $prepare->fetch(PDO::FETCH_ASSOC);
+        while($result)
+        {
+            $list = $result['Idcate'];
+            $array[''.$list.''] = $result['qte'];
+            $result = $prepare->fetch(PDO::FETCH_ASSOC);
+        }
+    }   
+    catch(PDOException $e)
+    {
+        echo "Erreur !: ".$e->getMessage();
+    }
+    finally
+    {
+        $co = null;
+    }
+    return $array;
+}
+
 function getPlacesDisponiblesById($id, $type, $sousCategorie)
 {
     /*
@@ -89,6 +121,18 @@ function getPlacesDisponiblesById($id, $type, $sousCategorie)
     */
     try
     {
+        switch($type)
+        {
+            case 'A':
+                $idcate = 1;
+                break;
+            case 'B':
+                $idcate = 2;
+                break;
+            case 'C':
+                $idcate = 3;
+                break;
+        }
         $complet = $type.$sousCategorie; // A2.
         $co = connexionPDO();
         $sql = "SELECT SUM(stocker.Quantite) as quantite, traversee.idBateau as Bateau FROM stocker INNER JOIN reservation ON stocker.idReservation = reservation.IdReservation INNER JOIN traversee ON reservation.numeroTraversee = traversee.numeroTraversee AND traversee.numeroTraversee = :id WHERE stocker.IdType = :idType"; 
@@ -97,7 +141,10 @@ function getPlacesDisponiblesById($id, $type, $sousCategorie)
         $prepare->bindValue(":idType", $complet);
         $prepare->execute();
         $fetch = $prepare->fetch(PDO::FETCH_ASSOC);
-
+        
+        $array_places = getNbrPlacesTotalPerVoyage($id, $idcate);
+        //print_r($array_places);
+        $qte_max = $array_places[''.$complet.''];
 
         if($fetch['quantite'] == NULL)
         {
@@ -110,17 +157,17 @@ function getPlacesDisponiblesById($id, $type, $sousCategorie)
 
         // nombre de places restantes dans le bateau du trajet
 
-        $sql = "SELECT IdType , IdBateau, QuantiteMaxDisponible as maxdisp FROM contenir WHERE IdType = :idType AND IdBateau = :bateau";
-        $prepare = $co->prepare($sql);
-        $prepare->bindValue(":idType", $complet);
-        $prepare->bindValue(":bateau", $fetch['Bateau']);
-        $prepare->execute();
-        $fetch_qte_max = $prepare->fetch(PDO::FETCH_ASSOC);
+        // $sql = "SELECT IdType , IdBateau, QuantiteMaxDisponible as maxdisp FROM contenir WHERE IdType = :idType AND IdBateau = :bateau";
+        // $prepare = $co->prepare($sql);
+        // $prepare->bindValue(":idType", $complet);
+        // $prepare->bindValue(":bateau", $fetch['Bateau']);
+        // $prepare->execute();
+        // $fetch_qte_max = $prepare->fetch(PDO::FETCH_ASSOC);
                     
-        $qte_max = $fetch_qte_max['maxdisp'];
+        // $qte_max = $fetch_qte_max['maxdisp'];
       
-        print_r($fetch_qte_max);
-        print_r($fetch);
+       // print_r($fetch_qte_max);
+       // print_r($fetch);
 
     }
     catch(PDOException $e)
@@ -135,6 +182,7 @@ function getPlacesDisponiblesById($id, $type, $sousCategorie)
     return $qte_max - $qte_pris;
 }
 
-//echo 'Catégorie A3 numeroTraversée 1: places restantes';
-//print_r(getPlacesDisponiblesById(1, "A", 2));
+//print_r(getNbrPlacesTotalPerVoyage(1,1));
+echo 'Catégorie A3 numeroTraversée 1: places restantes';
+print_r(getPlacesDisponiblesById(1, "B", 1));
 ?>

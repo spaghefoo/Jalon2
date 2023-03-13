@@ -15,7 +15,7 @@ if (isLoggedOn()) {
 // 4 - traitement si necessaire des donnees recuperees
     if(isset($_GET['reserver']))
     {
-        setReservation(date('Y-m-d H:i:s'), 2);
+        setReservation(date('Y-m-d H:i:s'), 5, 20, 1, 2);
     }
 
 

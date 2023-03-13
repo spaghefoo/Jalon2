@@ -49,7 +49,7 @@
                 <td>'.$destination[$i]['libelleDepart'].'</td>
                 <td>'.$destination[$i]['libelleArrivee'].'</td>';
                 echo
-                '<td><a class='.$class.' href= >'.$button.'</a></td></tr>';
+                '<td><a class='.$class.' href=\'?action=commander&numeroTraversee='.$destination[$i]['numeroTraversee'].'\' >'.$button.'</a></td></tr>';
             }
         }
         else
