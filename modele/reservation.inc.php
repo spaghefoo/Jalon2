@@ -3,8 +3,23 @@ include_once "bd.inc.php";
 // pour setReservation...(verifier l'utilisateur etc.)
 include_once "authen.inc.php";
 include_once "utilisateur.inc.php";
+/**
+ * modele de création de reservation.
+ * 
+ * @author Galdric Tingaud
+ * @author Sofiane Acheraiou
+ * @author Théophane Legrand
+ * 
+ */
 
 function getReservation($idReservation){
+    /**
+     * Récupere une reservation de la table réservation en fonction de son numero.
+     * @param idReservation Int, Numero de la reservation.
+     * 
+     * @return resultat Array, les données de la reservation.
+     * 
+     */
     $resultat = array();
 
     try {
@@ -25,6 +40,13 @@ function getReservation($idReservation){
 }
 
 function getReservationsIdUtilisateur($mailU){
+
+    /**
+     * Recupere tous les reservations d'un utilisateur en particulier.
+     * @param mailU String, le mail de l'utilisateur
+     * 
+     * @return resultat Array, Reservations de l'utilisateur
+     */
     $resultat = array();
 
     try {
@@ -62,6 +84,13 @@ function getReservationsIdUtilisateur($mailU){
 
 
 function getDetailReservationById($idReservation){
+    /**
+     * Recupere une reservation par son numero.
+     * 
+     * @param idReservation Int, numero de la reservation
+     * 
+     * @return resultat Array, Reservation.
+     */
     $resultat = array();
 
     try {
@@ -92,6 +121,13 @@ function getDetailReservationById($idReservation){
 
 function setReservation($date ,$traversee)
 {
+    /**
+     * Ajoute une reservation dans la table reservation de la base de données
+     * @param date Date YYYY-mm-dd, Date de la reservation.
+     * @param traversee int, numero de la traversée.
+     * 
+     * @return int Numero de la reservation créée.
+     */
     try
     {
        // print_r($idR);
@@ -120,6 +156,7 @@ function setReservation($date ,$traversee)
 
         /**
          * @todo CHECK TO SEE THE NUMBER OF PLACES LEFT.
+         * @todo ON VA FAIRE CA DANS UN TRIGGER EN SQL DONC PLUS EN TODO
          * 
          *  */
     
@@ -132,16 +169,24 @@ function setReservation($date ,$traversee)
     {
         $co = null;
     }
-    /**
-     * @return Le numero de la reservation qui bient juste d'être faite.
-     * 
-     */
+
     return $idR['IdReservation'];
 }
 
 
 function setStocker($idReservation, $idcategorie, $idType, $qte)
 {
+    /**
+     * 
+     * Assigne une reservation a une catégorie commandée dans la table stocker.
+     * 
+     * @param idReservation Int, Numero de la reservation
+     * @param idCategorie Int, Type de la catégorie reservée
+     * @param idType Int, Sous-catégorie(Enfant, adulte...)
+     * @param qte Int, la quantité de la catégorie prise.
+     * 
+     * @return void
+     */
     try
     {
         switch($idcategorie)
@@ -180,16 +225,22 @@ function setStocker($idReservation, $idcategorie, $idType, $qte)
         $co = null;
     }
 }
-/**
- * @param int $qte
- * @param int $codeLiaison 
- * @param int $categorie
- * @param int $souscategorie
- * @param int $periode
- * @return float/double
- */
+
 function getPrix($qte, $codeLiaison, $categorie, $souscategorie, $periode)
 {
+/**
+ * Permet de recuperer le prix d'une reservation en fonction de la quantité.
+ * 
+ * @param qte Int, La quantité commandée d'une reservation
+ * @param codeLiaison Int, Le numero de la liaison commandée
+ * @param categorie Int, La catégorie commandée
+ * @param souscategorie Int, La sous-catégorie 
+ * @param periode Int, la periode dans laquelle la commandé a été passée
+ * @return float/double Le prix total.
+ * 
+ * @todo Gestion des periodes qui changent(et ajout de ses periodes(panel admin))
+ * 
+ */
     try
     {
         switch($categorie)

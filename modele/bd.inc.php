@@ -1,6 +1,22 @@
 <?php
+/**
+ * Module base de donnée Marieteam
+ * @author Galdric Tingaud
+ * @author Théophane Legrand
+ * @author Sofiane Acheraiou
+ */
 
 function connexionPDO() {
+/**
+ * Permet de se connecter a la base de données
+ * 
+ * @var String $login
+ * @var String $mdp
+ * @var String $bd
+ * @var String $serveur
+ * 
+ * @return void
+ */
     $login = "root";
     $mdp = "";
     $bd = "marieteam";

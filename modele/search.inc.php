@@ -1,5 +1,11 @@
 <?php
 // Fichier crée par sofiane
+
+/**
+ * @author ACHERAIOU Sofiane
+ * 
+ * Ce fichier permet d'avoir une liste en json de toutes les destinations pour récuperation dans la vue.
+ */
 include_once('bd.inc.php');
 // sofiane - cette ligne d'indiquer au navigateur qu'il s'agit d'un fichier json(alors que c'est du php mdr)
 

@@ -1,12 +1,26 @@
 <?php
 // fichier crée par sofiane
 
+/**
+ * modele de gestion des destinations
+ * 
+ * @author Galdric Tingaud
+ * @author Sofiane Acheraiou
+ * @author Théophane Legrand
+ * 
+ */
+
 //sofiane - G OUBLIE LE INCLUDE LOL
 include_once("bd.inc.php");
 
 // sofiane - permet d'avoir toutes les traversées
 function getTraversees()
 {
+    /**
+     * Fonction qui recupere toutes les traversées.
+     * 
+     * @return traversees Array, Recupere tous les traversées et les recupere dans un tableau.
+     */
  try
  {
     $traversees = array();
@@ -34,6 +48,14 @@ function getTraversees()
 // sofiane - permet d'avoir une traversée par un numéro
 function getTraverseesBynumero($numero)
 {
+    /**
+     * 
+     * Recupere les traversées par en fonction du numéro de la traversée.
+     * 
+     * @param numero Int, Numero de la traversée 
+     * @return traversees Array, Recupere les données de la traversées
+     */
+    
     // A COMPLETER AS WELL
     try
     {
@@ -58,6 +80,11 @@ function getTraverseesBynumero($numero)
 // permet d'avoir les traversées par secteur
 function getAllTraverseesBySecteur($secteur)
 {
+    /**
+     * Recupere Toutes les traversées correspondant à un secteur.
+     * @return fetch Array, Toutes les traversées qui correspondent à un secteur dans un tableau.
+     * 
+     */
     try
     {
         $co = connexionPDO();
@@ -83,6 +110,10 @@ function getAllTraverseesBySecteur($secteur)
 
 function getNbrPlacesTotalPerVoyage($numeroTraversee, $categorie)
 {
+    /**
+     * 
+     * 
+     */
     try
     {
         $array = array();
@@ -113,13 +144,18 @@ function getNbrPlacesTotalPerVoyage($numeroTraversee, $categorie)
 
 function getPlacesDisponiblesById($id, $type, $sousCategorie)
 {
-    /*
-
-    Cette fonction prend un nombre qui correspond au numeroTraversee
-    une lettre(correspond au type(Passages, vehicules etc...))
-    et un chiffre(sous-catégorie: adulte, enfants,, vehicules inferieur a 2 metres...)
-    puis retourne le resultat de la requete sql.
-    */
+    /**
+     *   Cette fonction prend un nombre qui correspond au numeroTraversee
+     *   une lettre(correspond au type(Passages, vehicules etc...))
+     *   et un chiffre(sous-catégorie: adulte, enfants,, vehicules inferieur a 2 metres...)
+     *   puis retourne le resultat de la requete sql.
+     * 
+     *  @param id Int, numero de la traversée
+     *  @param type Char, Type de catégorie('A', 'B' ou 'C')
+     *  @param sousCategorie Int, numero de la sous-catégorie(1,2,3)
+     * 
+     *  @return int Renvoie le nombre de places disponibles dans un simple int. 
+     */
     try
     {
         switch($type)
@@ -187,6 +223,13 @@ function getPlacesDisponiblesById($id, $type, $sousCategorie)
 function getAllCategories()
 {
 
+    /**
+     * Recupere tous les catégories transportées par la compagnie(Bateaux, Passagers...)
+     * Ainsi que leurs sous catégories.
+     * 
+     * 
+     * @return result Array.
+     */
     try
     {
         $co = connexionPDO();
