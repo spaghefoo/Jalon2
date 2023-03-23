@@ -14,13 +14,15 @@
 include_once("bd.inc.php");
 
 // sofiane - permet d'avoir toutes les traversées
-function getTraversees()
-{
-    /**
+
+ /**
      * Fonction qui recupere toutes les traversées.
      * 
      * @return traversees Array, Recupere tous les traversées et les recupere dans un tableau.
      */
+function getTraversees()
+{
+   
  try
  {
     $traversees = array();

@@ -17,7 +17,7 @@ include_once "utilisateur.inc.php";
      * Récupere une reservation de la table réservation en fonction de son numero.
      * @param idReservation Int, Numero de la reservation.
      * 
-     * @return resultat Array, les données de la reservation.
+     * @return Array, les données de la reservation.
      * 
      */
 function getReservation($idReservation){
@@ -228,12 +228,12 @@ function setStocker($idReservation, $idcategorie, $idType, $qte)
 /**
  * Permet de recuperer le prix d'une reservation en fonction de la quantité.
  * 
- * @param qte Int, La quantité commandée d'une reservation
- * @param codeLiaison Int, Le numero de la liaison commandée
- * @param categorie Int, La catégorie commandée
- * @param souscategorie Int, La sous-catégorie 
+ * @param Int, La quantité commandée d'une reservation
+ * @param Int, Le numero de la liaison commandée
+ * @param Int, La catégorie commandée
+ * @param Int, La sous-catégorie 
  * @param periode Int, la periode dans laquelle la commandé a été passée
- * @return float/double Le prix total.
+ * @return double Le prix total.
  * 
  * @todo Gestion des periodes qui changent(et ajout de ses periodes(panel admin))
  * 

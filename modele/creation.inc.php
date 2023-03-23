@@ -21,7 +21,7 @@ include_once("bd.inc.php");
      * @param ville String
      * @param nom String
      * 
-     * @return message String, message d'erreur en cas de non respect des règles de sécurité du mot de passe.
+     * @return String, message d'erreur en cas de non respect des règles de sécurité du mot de passe.
      * 
      * 
      */
@@ -71,15 +71,16 @@ function createUser($mail, $cp, $mdp, $ville, $nom)
 }
 
 // PERMET DE MODIFIER UN MOT DE PASSE D'UTILISATEUR
-function updateMdp($mail,$mdp)
-{
 /**
  * Chiffre et met a jour le mot de passe d'un utilisateur.
  * @param mail String, email de l'utilisateur qui change son mdp
  * @param mdp String, nouvel mdp de l'utilisateur.
  * 
- * @return message String, message de succes/échec changement de mot de passe
+ * @return String, message de succes/échec changement de mot de passe
  */
+function updateMdp($mail,$mdp)
+{
+
     $message = "";
 
     if (!verificationMotspasse($mdp)){
@@ -109,19 +110,21 @@ function updateMdp($mail,$mdp)
 // galdric - vérifie que le mots passe resptcent les régles de sécurité
 //https://www.web-development-kb-eu.site/fr/php/creer-preg-match-pour-la-validation-du-mot-de-passe-permettant/1068096486/
 
-function verificationMotspasse ($mdp, $min_len = 12, $max_len = 70, $req_digit = 1, $req_lower = 1, $req_upper = 1, $req_symbol = 1) {
-    /**
+
+  /**
      * Verifie le mot de passe selon les recommandations de l'ANSSI. et renvoie un boolean si correspond au critères.
-     * @param mdp, String mdp a verifier
-     * @var min_len Nombre de caractere minimal(12)
-     * @var max_len Nombre de caractere maximale(70)
-     * @var req_digit Nombre requis(1)
-     * @var req_lower minuscule requis(1)
-     * @var req_upper Majuscule requis(1)
-     * @var req_symbol Caractère spécial(1)
+     * @param String mdp a verifier
+     * @var int, $min_len Nombre de caractere minimal(12)
+     * @var int $max_len Nombre de caractere maximale(70)
+     * @var int $req_digit Nombre requis(1)
+     * @var int $req_lower minuscule requis(1)
+     * @var int $req_upper Majuscule requis(1)
+     * @var int $req_symbol Caractère spécial(1)
      * 
      * @return boolean
      */
+function verificationMotspasse ($mdp, $min_len = 12, $max_len = 70, $req_digit = 1, $req_lower = 1, $req_upper = 1, $req_symbol = 1) {
+  
 
 
     // Construire une chaîne en fonction des exigences pour le mot de passe
