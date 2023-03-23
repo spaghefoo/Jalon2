@@ -11,11 +11,12 @@ include_once "bd.inc.php";
  */
 
 // TOUT LES UTILISATEURS
-function getUtilisateurs() {
-    /**
+ /**
      * Recupere la liste de tous les utilisateurs inscrits.
-     * @return array
+     * @return Array l'utilisateur.
      */
+function getUtilisateurs() {
+   
     $resultat = array();
 
     try {
@@ -37,14 +38,16 @@ function getUtilisateurs() {
 }
 
 // PERMET DE RETROUVER UN UTILISATEUR A PARTIR DE SON MAIL
-function getUtilisateurByMailU($mailU) {
-    /**
+
+ /**
      * Permet de recupérer un utilisateur par son mail.
      * 
-     * @param mailU String, le mail de l'utilisateur
+     * @param String $mailU, le mail de l'utilisateur
      * 
      * @return Array Renvoie l'utilisateur cherché.
      */
+function getUtilisateurByMailU($mailU) {
+   
     $resultat = array();
 
     try {
@@ -62,10 +65,11 @@ function getUtilisateurByMailU($mailU) {
 }
 
 // PERMET DE TROUVER UN UTILISATEUR PAR SON ID
-function getUtilisateurById()
-{
 /**
  * @deprecated Est inutile(on peut recuperer un utilisateur par son mail. plus pertinent).
  */
+function getUtilisateurById()
+{
+
 }
 ?>

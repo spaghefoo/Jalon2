@@ -46,15 +46,18 @@ function getTraversees()
 }
 
 // sofiane - permet d'avoir une traversée par un numéro
-function getTraverseesBynumero($numero)
-{
-    /**
+
+
+ /**
      * 
      * Recupere les traversées par en fonction du numéro de la traversée.
      * 
      * @param numero Int, Numero de la traversée 
      * @return traversees Array, Recupere les données de la traversées
      */
+function getTraverseesBynumero($numero)
+{
+   
     
     // A COMPLETER AS WELL
     try
@@ -78,13 +81,16 @@ function getTraverseesBynumero($numero)
 }
 
 // permet d'avoir les traversées par secteur
-function getAllTraverseesBySecteur($secteur)
-{
-    /**
+
+   /**
      * Recupere Toutes les traversées correspondant à un secteur.
+     * @param String $secteur, Recupere le secteur de ou des traversées.
      * @return fetch Array, Toutes les traversées qui correspondent à un secteur dans un tableau.
      * 
      */
+function getAllTraverseesBySecteur($secteur)
+{
+ 
     try
     {
         $co = connexionPDO();
@@ -106,14 +112,17 @@ function getAllTraverseesBySecteur($secteur)
     return $fetch;
 }
 
-
+/**
+ * 
+ * Récupere le nombre de places par voyages
+ * 
+ * @param int $numeroTraversee
+ * @param int $categorie, numero de la catégorie(1 = A, 2 = B, 3 = C);
+ */
 
 function getNbrPlacesTotalPerVoyage($numeroTraversee, $categorie)
 {
-    /**
-     * 
-     * 
-     */
+   
     try
     {
         $array = array();
@@ -142,9 +151,8 @@ function getNbrPlacesTotalPerVoyage($numeroTraversee, $categorie)
     return $array;
 }
 
-function getPlacesDisponiblesById($id, $type, $sousCategorie)
-{
-    /**
+
+  /**
      *   Cette fonction prend un nombre qui correspond au numeroTraversee
      *   une lettre(correspond au type(Passages, vehicules etc...))
      *   et un chiffre(sous-catégorie: adulte, enfants,, vehicules inferieur a 2 metres...)
@@ -156,6 +164,9 @@ function getPlacesDisponiblesById($id, $type, $sousCategorie)
      * 
      *  @return int Renvoie le nombre de places disponibles dans un simple int. 
      */
+function getPlacesDisponiblesById($id, $type, $sousCategorie)
+{
+  
     try
     {
         switch($type)
@@ -219,17 +230,17 @@ function getPlacesDisponiblesById($id, $type, $sousCategorie)
     return $qte_max - $qte_pris;
 }
 
-
-function getAllCategories()
-{
-
-    /**
+  /**
      * Recupere tous les catégories transportées par la compagnie(Bateaux, Passagers...)
      * Ainsi que leurs sous catégories.
      * 
      * 
      * @return result Array.
      */
+function getAllCategories()
+{
+
+  
     try
     {
         $co = connexionPDO();

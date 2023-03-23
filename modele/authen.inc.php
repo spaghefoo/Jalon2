@@ -11,7 +11,6 @@
 //Ici seront créer les fonctions qui permettent la connexion et la deconnexion
 include_once "utilisateur.inc.php";
 
-function login($mailU, $mdpU) {
 
 /**
  *
@@ -23,6 +22,8 @@ function login($mailU, $mdpU) {
  * @param String $mdpU
  * @return void
  */
+function login($mailU, $mdpU) {
+
 
     if (!isset($_SESSION)) {
         session_start();
@@ -39,8 +40,7 @@ function login($mailU, $mdpU) {
     }
 }
 
-function logout() {
-    /**
+ /**
      * 
      * 
      * La fonction ne prend aucun parametre. 
@@ -50,6 +50,8 @@ function logout() {
      * 
      * 
      */
+function logout() {
+   
     if (!isset($_SESSION)) {
         session_start();
     }
@@ -57,9 +59,7 @@ function logout() {
     unset($_SESSION["mdpU"]);
 }
 
-function getMailULoggedOn(){
-
-    /**
+   /**
      * La fonction retourne le mail de l'utilisateur actuellement connecté
      * Si l'utilisateur n'est pas connecté alors la valeur renvoyée est vide.
      * @var String $ret Contient l'email de l'utilisateur. vide ou egal a la variable de session mailU.
@@ -67,6 +67,9 @@ function getMailULoggedOn(){
      * 
      * 
      */
+function getMailULoggedOn(){
+
+ 
     if (isLoggedOn()){
         $ret = $_SESSION["mailU"];
     }
@@ -77,8 +80,7 @@ function getMailULoggedOn(){
 
 }
 
-function isLoggedOn() {
-    /**
+  /**
      * Si la session est active et que Le mail utilisateur de la variable de session
      * Correspond a celle trouvé par la fonction getUtilisateurByMailU
      * Alors la fonction renvoie truc, sinon false.
@@ -87,6 +89,8 @@ function isLoggedOn() {
      * 
      * 
      */
+function isLoggedOn() {
+  
     if (!isset($_SESSION)) {
         session_start();
     }

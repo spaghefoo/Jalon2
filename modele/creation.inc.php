@@ -10,10 +10,8 @@ include_once("bd.inc.php");
  * 
  */
 
-// PERMET DE CREER UN UTILISATEUR DANS LA BASE DE DONNEES
-function createUser($mail, $cp, $mdp, $ville, $nom)
-{
-    /**
+
+   /**
      * Fonction de création de l'utilisateur dans la base de données
      * Verifie le mot de passe en fonctoin des règles de sécurité de l'ANSSI. 
      * 12 caractères, une chiffre, une minuscule, une majuscule, un caractère spécial.
@@ -27,6 +25,10 @@ function createUser($mail, $cp, $mdp, $ville, $nom)
      * 
      * 
      */
+// PERMET DE CREER UN UTILISATEUR DANS LA BASE DE DONNEES
+function createUser($mail, $cp, $mdp, $ville, $nom)
+{
+  
     $co = connexionPDO();
 
     $req = $co->prepare("SELECT AdresseMail FROM client WHERE AdresseMail = ?");

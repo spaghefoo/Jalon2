@@ -6,8 +6,8 @@
  * @author Sofiane Acheraiou
  */
 
-function connexionPDO() {
-/**
+
+ /**
  * Permet de se connecter a la base de données
  * 
  * @var String $login
@@ -17,6 +17,8 @@ function connexionPDO() {
  * 
  * @return void
  */
+function connexionPDO() {
+
     $login = "root";
     $mdp = "";
     $bd = "marieteam";

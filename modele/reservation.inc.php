@@ -12,14 +12,16 @@ include_once "utilisateur.inc.php";
  * 
  */
 
-function getReservation($idReservation){
-    /**
+
+ /**
      * Récupere une reservation de la table réservation en fonction de son numero.
      * @param idReservation Int, Numero de la reservation.
      * 
      * @return resultat Array, les données de la reservation.
      * 
      */
+function getReservation($idReservation){
+    
     $resultat = array();
 
     try {
@@ -38,15 +40,15 @@ function getReservation($idReservation){
         die();
     } return $resultat;
 }
-
+ /**
+     * Recupere tous les reservations d'un utilisateur en particulier.
+     * @param String $mailU, le mail de l'utilisateur
+     * 
+     * @return Array $resultat, Reservations de l'utilisateur
+     */
 function getReservationsIdUtilisateur($mailU){
 
-    /**
-     * Recupere tous les reservations d'un utilisateur en particulier.
-     * @param mailU String, le mail de l'utilisateur
-     * 
-     * @return resultat Array, Reservations de l'utilisateur
-     */
+   
     $resultat = array();
 
     try {
@@ -82,15 +84,15 @@ function getReservationsIdUtilisateur($mailU){
 }
 
 
-
-function getDetailReservationById($idReservation){
-    /**
+ /**
      * Recupere une reservation par son numero.
      * 
-     * @param idReservation Int, numero de la reservation
+     * @param Int $idReservation , numero de la reservation
      * 
-     * @return resultat Array, Reservation.
+     * @return Array $resultat, Reservation.
      */
+function getDetailReservationById($idReservation){
+   
     $resultat = array();
 
     try {
@@ -119,15 +121,17 @@ function getDetailReservationById($idReservation){
     } return $resultat;
 }
 
-function setReservation($date ,$traversee)
-{
-    /**
+
+ /**
      * Ajoute une reservation dans la table reservation de la base de données
-     * @param date Date YYYY-mm-dd, Date de la reservation.
-     * @param traversee int, numero de la traversée.
+     * @param date $date YYYY-mm-dd, Date de la reservation.
+     * @param int $traversee, numero de la traversée.
      * 
      * @return int Numero de la reservation créée.
      */
+function setReservation($date ,$traversee)
+{
+   
     try
     {
        // print_r($idR);
@@ -154,11 +158,7 @@ function setReservation($date ,$traversee)
         $idR = $prepare_select->fetch(PDO::FETCH_ASSOC);
 
 
-        /**
-         * @todo CHECK TO SEE THE NUMBER OF PLACES LEFT.
-         * @todo ON VA FAIRE CA DANS UN TRIGGER EN SQL DONC PLUS EN TODO
-         * 
-         *  */
+       
     
     }
     catch(Exception $e)
@@ -173,20 +173,20 @@ function setReservation($date ,$traversee)
     return $idR['IdReservation'];
 }
 
-
-function setStocker($idReservation, $idcategorie, $idType, $qte)
-{
-    /**
+ /**
      * 
      * Assigne une reservation a une catégorie commandée dans la table stocker.
      * 
-     * @param idReservation Int, Numero de la reservation
-     * @param idCategorie Int, Type de la catégorie reservée
-     * @param idType Int, Sous-catégorie(Enfant, adulte...)
-     * @param qte Int, la quantité de la catégorie prise.
+     * @param Int $idReservation, Numero de la reservation
+     * @param Int $idCategorie, Type de la catégorie reservée
+     * @param Int $idType, Sous-catégorie(Enfant, adulte...)
+     * @param Int $qte, la quantité de la catégorie prise.
      * 
      * @return void
      */
+function setStocker($idReservation, $idcategorie, $idType, $qte)
+{
+   
     try
     {
         switch($idcategorie)
@@ -225,9 +225,6 @@ function setStocker($idReservation, $idcategorie, $idType, $qte)
         $co = null;
     }
 }
-
-function getPrix($qte, $codeLiaison, $categorie, $souscategorie, $periode)
-{
 /**
  * Permet de recuperer le prix d'une reservation en fonction de la quantité.
  * 
@@ -241,6 +238,9 @@ function getPrix($qte, $codeLiaison, $categorie, $souscategorie, $periode)
  * @todo Gestion des periodes qui changent(et ajout de ses periodes(panel admin))
  * 
  */
+function getPrix($qte, $codeLiaison, $categorie, $souscategorie, $periode)
+{
+
     try
     {
         switch($categorie)
