@@ -1,7 +1,8 @@
 <section class='sectionMesReservation'>
     <div class='container'>
         <div class='content'>
-            <h1>Liste des réservations de <?php echo $mailU ?></h1>
+            <div class="mesReservations">
+            <h1>Liste des réservations de <?php echo $mailU ?></h1> <br>
             <?php
             if (count($listeReservations) > 0) {
                 echo "<table id='reservations'>";

@@ -272,8 +272,6 @@ footer {
     /* à 50%/50% du parent référent */
     transform: translate(-50%, -50%);
     /* décalage de 50% de sa propre taille */
-    margin-top: 140px; /* Ajout d'une marge pour espacer le contenu de la section */
-    margin-bottom: -95px;
 }
 
 .container .content {
@@ -286,6 +284,7 @@ footer {
     font-size: 1.5em;
     color: black;
 }
+
 
 #connexionTitre {
     text-align: center;
