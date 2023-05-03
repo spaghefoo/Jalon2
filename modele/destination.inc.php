@@ -10,10 +10,9 @@
  * 
  */
 
-//sofiane - G OUBLIE LE INCLUDE LOL
 include_once("bd.inc.php");
 
-// sofiane - permet d'avoir toutes les traversées
+//permet d'avoir toutes les traversées
 
  /**
      * Fonction qui recupere toutes les traversées.

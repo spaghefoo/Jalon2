@@ -15,9 +15,13 @@
                 <li class="menu__group"><a href="./?action=accueil" class="menu__link r-link text-underlined">Marie♥Team</a></li>
                 <li class="menu__group"><a href="./?action=qui-sommes-nous" class="menu__link r-link text-underlined">Qui sommes-nous ?</a></li>
                 <li class="menu__group"><a href="./?action=destinations" class="menu__link r-link text-underlined">Destinations</a></li>
-                <?php if (isLoggedOn()) { ?>
+                <?php if (isLoggedOn()) {
+                    if ($_SESSION['mailU'] == "AdminMarieTeam@gmail.com") { ?>
+                        <li class="menu__group"><a href="./?action=panelAdmin" class="menu__link r-link text-underlined">Panel Administrateur</a></li>
+                        <li class="menu__group"><a href="./?action=profil" class="menu__link r-link text-underlined">Profil</a></li>
+                        <?php } else { ?>
                     <li class="menu__group"><a href="./?action=profil" class="menu__link r-link text-underlined">Profil</a></li>
-                <?php } else { ?>
+                    <?php } } else { ?>
                     <li class="menu__group"><a href="./?action=connexion" class="menu__link r-link text-underlined">Connexion</a></li>
                 <?php } ?>
             </ul>

@@ -17,8 +17,15 @@ function controleurPrincipal($action){
     $lesActions["inscription"] = "inscription.php"; // Formulaire inscrption
     $lesActions["detail-reservation"] = "reservation.php"; // page reservation
     $lesActions['mesReservations'] = "mesReservations.php"; //page mesReservations
-    $lesActions['commander'] = "commande.php";
-    $lesActions['rgpd'] = "RGPD.php";
+    $lesActions['commander'] = "commande.php"; //page commande
+    $lesActions['rgpd'] = "RGPD.php"; //page rgpd
+    $lesActions['panelAdmin'] = "panelAdmin.php"; //page paneladmin
+    $lesActions['panelStat'] = "panelStat.php"; //page panelstat
+    $lesActions['panelLiaison'] = "panelLiaison.php"; //page panelLiaison
+    $lesActions['detail-liaison'] = "liaisonDetail.php"; //page des détails de la liaison
+    $lesActions['detail-statistique'] = "statistiqueDetail.php"; //page des statistiques de date
+
+
     if (array_key_exists ( $action , $lesActions )){
         return $lesActions[$action];
     }
