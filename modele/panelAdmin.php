@@ -67,6 +67,53 @@ function getDetailLiaisonById($CodeLiaison)
     return $resultat;
 }
 
+//Fonction qui va recup le nom du port en fonction de son id.
+function getNomPortById()
+{
+
+}
+
+function getAllPorts()
+{
+    try
+    {
+        $connexion = connexionPDO();
+        $query = "SELECT * FROM port";
+        $req = $connexion->query($query);
+        $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+    }
+    catch(PDOException $e)
+    {
+        print "Erreur !:".$e->getMessage();
+    }
+    finally
+    {
+        $co = null;
+    }
+    return $resultat;
+}
+
+// Fonction pour recuperer tous les secteurs.
+function getAllSecteurs()
+{
+    try
+    {
+        $connexion = connexionPDO();
+        $query = "SELECT * FROM secteur";
+        $req = $connexion->query($query);
+        $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+    }
+    catch(PDOException $e)
+    {
+        print "Erreur !:".$e->getMessage();
+    }
+    finally
+    {
+        $co = null;
+    }
+    return $resultat;
+}
+
 //Fonction qui va modifier la liaison 
 function setModificationLiaison($distance, $IdPort1, $IdPort2, $IdSecteur, $CodeLiaison)
 {

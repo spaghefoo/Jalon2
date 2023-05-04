@@ -5,6 +5,9 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
 } // 1 - permet de naviguer entre les dossiers
 include_once "$racine/modele/panelAdmin.php";
 
+$resultPorts = getAllPorts();
+$resultSecteurs = getAllSecteurs();
+
 // 2 - recuperation des donnees GET, POST, et SESSION
 if (isset($_GET["CodeLiaison"])){
     $CodeLiaison=$_GET["CodeLiaison"];

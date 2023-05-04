@@ -5,6 +5,8 @@ if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
 include_once "$racine/modele/panelAdmin.php";
 
 $AffichageLiaison = getLiaison();
+$resultPorts = getAllPorts();
+$resultSecteurs = getAllSecteurs();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $CodeLiaison = $_POST["CodeLiaison"];
@@ -12,6 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $IdPort = $_POST["IdPort"];
     $IdPort_1 = $_POST["IdPort_1"];
     $IdSecteur = $_POST["IdSecteur"];
+
+    
 
     setAjoutLiaison($CodeLiaison, $DistanceEnMillesMarin, $IdPort, $IdPort_1, $IdSecteur);
 }

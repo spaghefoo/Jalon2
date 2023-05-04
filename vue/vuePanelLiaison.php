@@ -1,7 +1,6 @@
 <section class="section">
   <h2>Panel Administrateur - Liaison</h2>
 </section>
-
 <form action="?action=panelLiaison" method="POST">
   <section class="section">
 
@@ -14,29 +13,33 @@
 
     <label for="IdPort">Id du premier port : </label>
     <select id="IdPort" name="IdPort">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
+      <?php
+
+        for($i = 0; $i < sizeof($resultPorts); $i++)
+        {
+            echo '<option value='.$resultPorts[$i]['IdPort'].'>'.$resultPorts[$i]['libellePort'].'</option>';
+        }
+      ?>
     </select><br><br>
 
     <label id="IdPort_1">Id du deuxième port : </label>
     <select id="IdPort_1" name="IdPort_1">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
+    <?php
+      for($i = 0; $i < sizeof($resultPorts); $i++)
+      {
+          echo '<option value='.$resultPorts[$i]['IdPort'].'>'.$resultPorts[$i]['libellePort'].'</option>';
+      }
+    ?>
     </select><br><br>
 
     <label id="IdSecteur">Id du secteur : </label>
     <select id="IdSecteur" name="IdSecteur">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
+    <?php
+        for($i = 0; $i < sizeof($resultSecteurs); $i++)
+        {
+            echo '<option value='.$resultSecteurs[$i]['IdSecteur'].'>'.$resultSecteurs[$i]['nomSecteur'].'</option>';
+        }
+    ?>
     </select><br><br>
 
     <input type="submit" />

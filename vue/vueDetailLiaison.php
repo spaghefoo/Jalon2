@@ -14,29 +14,51 @@
 
                     <label for="IdPort">Id du premier port : </label>
                     <select id="IdPort" name="IdPort">
-                        <option value="1" <?= ($liaison['IdPort'] == 1) ? 'selected' : '' ?>>1</option>
-                        <option value="2" <?= ($liaison['IdPort'] == 2) ? 'selected' : '' ?>>2</option>
-                        <option value="3" <?= ($liaison['IdPort'] == 3) ? 'selected' : '' ?>>3</option>
-                        <option value="4" <?= ($liaison['IdPort'] == 4) ? 'selected' : '' ?>>4</option>
-                        <option value="5" <?= ($liaison['IdPort'] == 5) ? 'selected' : '' ?>>5</option>
-                        <option value="6" <?= ($liaison['IdPort'] == 6) ? 'selected' : '' ?>>6</option>
+                        <?php
+                        // boucle pour afficher les ports et selectionner celui correspondant.
+                           for($i = 0; $i < sizeof($resultPorts); $i++)
+                           {
+                                $selected = '';
+                                // j'ai remplace l'operateur ternaire par ça parce que ça marchait pas sinon.
+                                if($liaison['IdPort'] == $i)
+                                {
+                                    $selected = 'selected';
+                                }
+                                echo '<option value='.$resultPorts[$i]['IdPort'].' '.$selected.'>'.$resultPorts[$i]['libellePort'].'</option>';
+                           }
+                        ?>
                     </select><br><br>
 
                     <label id="IdPort_1">Id du deuxième port : </label>
                     <select id="IdPort_1" name="IdPort_1">
-                        <option value="1" <?= ($liaison['IdPort_1'] == 1) ? 'selected' : '' ?>>1</option>
-                        <option value="2" <?= ($liaison['IdPort_1'] == 2) ? 'selected' : '' ?>>2</option>
-                        <option value="3" <?= ($liaison['IdPort_1'] == 3) ? 'selected' : '' ?>>3</option>
-                        <option value="4" <?= ($liaison['IdPort_1'] == 4) ? 'selected' : '' ?>>4</option>
-                        <option value="5" <?= ($liaison['IdPort_1'] == 5) ? 'selected' : '' ?>>5</option>
-                        <option value="6" <?= ($liaison['IdPort_1'] == 6) ? 'selected' : '' ?>>6</option>
+                       <?php
+                       // idem que dessus.
+                            for($i = 0; $i < sizeof($resultPorts); $i++)
+                            {
+                                $selected = '';
+                                if($liaison['IdPort_1'] == $i)
+                                {
+                                    $selected = 'selected';
+                                }
+                                echo '<option value='.$resultPorts[$i]['IdPort'].' '.$selected.'>'.$resultPorts[$i]['libellePort'].'</option>';
+                            }
+                       ?>
                     </select><br><br>
 
                         <label id="IdSecteur">Id du secteur : </label>
                         <select id="IdSecteur" name="IdSecteur">
-                            <option value="1" <?= ($liaison['IdSecteur'] == 1) ? 'selected' : '' ?>>1</option>
-                            <option value="2" <?= ($liaison['IdSecteur'] == 2) ? 'selected' : '' ?>>2</option>
-                            <option value="3" <?= ($liaison['IdSecteur'] == 3) ? 'selected' : '' ?>>3</option>
+                         <?php
+                         // boucle pour afficher les secteurs et selectionner celui correspondant.
+                              for($i = 0; $i < sizeof($resultPorts); $i++)
+                              {
+                                   $selected = '';
+                                   if($liaison['IdSecteur'] == $i)
+                                   {
+                                       $selected = 'selected';
+                                   }
+                                   echo '<option value='.$resultSecteurs[$i]['IdPort'].' '.$selected.'>'.$resultSecteurs[$i]['libellePort'].'</option>';
+                              }
+                         ?>
                         </select><br><br>
 
                         <input type="submit" value="Soumettre" />
