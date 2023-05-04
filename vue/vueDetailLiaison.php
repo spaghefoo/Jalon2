@@ -49,14 +49,14 @@
                         <select id="IdSecteur" name="IdSecteur">
                          <?php
                          // boucle pour afficher les secteurs et selectionner celui correspondant.
-                              for($i = 0; $i < sizeof($resultPorts); $i++)
+                              for($i = 0; $i < sizeof($resultSecteurs); $i++)
                               {
                                    $selected = '';
                                    if($liaison['IdSecteur'] == $i)
                                    {
                                        $selected = 'selected';
                                    }
-                                   echo '<option value='.$resultSecteurs[$i]['IdPort'].' '.$selected.'>'.$resultSecteurs[$i]['libellePort'].'</option>';
+                                   echo '<option value='.$resultSecteurs[$i]['IdSecteur'].' '.$selected.'>'.$resultSecteurs[$i]['nomSecteur'].'</option>';
                               }
                          ?>
                         </select><br><br>
