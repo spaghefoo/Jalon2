@@ -19,6 +19,7 @@
         $totalPassagers = $statistiques['TotalPassagers'];
         $passagersTypeA2 = $statistiques['PassagersA2'];
         $passagersTypeA3 = $statistiques['PassagersA3'];
+        $totalTarif = $statistiques['TotalTarif'];
     }
 
     // afficher les statistiques pour cette date de traversée
@@ -29,6 +30,7 @@
         echo "<tr><td>Total</td><td>$totalPassagers</td></tr>";
         echo "<tr><td>Type A2</td><td>$passagersTypeA2</td></tr>";
         echo "<tr><td>Type A3</td><td>$passagersTypeA3</td></tr>";
+        echo "<tr><td>Prix</td><td>$totalTarif</td></tr>";
         echo "</table>";
     } else {
         echo "<p>Aucune statistique pour la date de traversée : $date</p>";

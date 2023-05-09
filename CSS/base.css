@@ -251,6 +251,7 @@ footer {
 
 .sectionMesReservation {
     max-width: 900px;
+    bottom: 50px;
     border-radius: 10px;
     margin: 60px auto;
     background-color: #cdd8ff;
@@ -267,11 +268,6 @@ footer {
     max-width: 700px;
     flex-wrap: wrap;
     z-index: 1;
-    top: 15%;
-    left: 50%;
-    /* à 50%/50% du parent référent */
-    transform: translate(-50%, -50%);
-    /* décalage de 50% de sa propre taille */
 }
 
 .container .content {
@@ -291,8 +287,6 @@ footer {
     font-size: 20px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: -70px;
-    width: 50%;
     color: #241c69;
 }
 

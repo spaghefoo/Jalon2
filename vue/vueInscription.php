@@ -1,10 +1,13 @@
 <section class="section">
-    <div id="connexionTitre">
+<div id="connexionTitre">
         <h1>Inscription</h1>
     </div>
     <div class="container">
+        
         <div class="card">
+            
             <div class="content">
+          
                 <form id="centre" action="?action=inscription" method="POST">
                     <input type="text" name="email" placeholder="Email de connexion" /> <br />
                     <input type="number" name="codePostal" placeholder="Code Postal" /><br />

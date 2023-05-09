@@ -70,24 +70,18 @@ function getDetailLiaisonById($CodeLiaison)
 //Fonction qui va recup le nom du port en fonction de son id.
 function getNomPortById()
 {
-
 }
 
 function getAllPorts()
 {
-    try
-    {
+    try {
         $connexion = connexionPDO();
         $query = "SELECT * FROM port";
         $req = $connexion->query($query);
         $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
-    }
-    catch(PDOException $e)
-    {
-        print "Erreur !:".$e->getMessage();
-    }
-    finally
-    {
+    } catch (PDOException $e) {
+        print "Erreur !:" . $e->getMessage();
+    } finally {
         $co = null;
     }
     return $resultat;
@@ -96,19 +90,14 @@ function getAllPorts()
 // Fonction pour recuperer tous les secteurs.
 function getAllSecteurs()
 {
-    try
-    {
+    try {
         $connexion = connexionPDO();
         $query = "SELECT * FROM secteur";
         $req = $connexion->query($query);
         $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
-    }
-    catch(PDOException $e)
-    {
-        print "Erreur !:".$e->getMessage();
-    }
-    finally
-    {
+    } catch (PDOException $e) {
+        print "Erreur !:" . $e->getMessage();
+    } finally {
         $co = null;
     }
     return $resultat;
@@ -162,14 +151,19 @@ function getStatistiquesParDate($date)
     try {
         $connexion = connexionPDO();
         $requete = $connexion->prepare("
-        SELECT SUM(s.Quantite) AS TotalPassagers, 
+        SELECT SUM(s.Quantite) AS TotalPassagers,
+        SUM(tarifer.Tarif * s.Quantite) AS TotalTarif,
         SUM(CASE WHEN s.IdCategorie = 'A2' THEN s.Quantite ELSE 0 END) AS PassagersA2,
         SUM(CASE WHEN s.IdCategorie = 'A3' THEN s.Quantite ELSE 0 END) AS PassagersA3,
         SUM(CASE WHEN s.IdCategorie = 'A4' THEN s.Quantite ELSE 0 END) AS PassagersA4
         FROM reservation r
         INNER JOIN traversee t ON r.numeroTraversee = t.numeroTraversee
         INNER JOIN stocker s ON r.IdReservation = s.IdCategorie AND r.IdReservation = s.IdCategorie
+        INNER JOIN tarifer ON s.IdType = tarifer.IdType
+        AND t.CodeLiaison = tarifer.CodeLiaison
+        AND r.IdReservation = tarifer.IdPeriode
         WHERE DATE(t.dateTraversee) = ?
+
         ");
         $requete->execute(array($date));
         $resultat = $requete->fetch(PDO::FETCH_ASSOC);
