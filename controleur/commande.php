@@ -24,7 +24,7 @@ if(isLoggedOn())
         //FINISH THIS.
         if(empty($_GET['confirmation']))
         {
-            if($prix = getPrix($a1, $commande['CodeLiaison'], 1, 1, 6) + getPrix($a2,$commande['codeLiaison'], 1, 2, 6) + getPrix($a3,$commande['codeLiaison'] ,1, 3, 6) + getPrix($b1,$commande['codeLiaison'],2, 1, 6) + getPrix($b2,$commande['codeLiaison'],2, 2, 6))
+            if($prix = getPrix($a1, $commande['CodeLiaison'], 1, 1, 6) + getPrix($a2,$commande['codeLiaison'], 1, 2, 6) + getPrix($a3,$commande['CodeLiaison'] ,1, 3, 6) + getPrix($b1,$commande['CodeLiaison'],2, 1, 6) + getPrix($b2,$commande['CodeLiaison'],2, 2, 6))
             {
                 include("$racine/vue/prix.html.php");
             }
