@@ -19,3 +19,5 @@ Projet de site vitrine pour une compagnie de tourisme maritime ficitive(Marie Te
 
 ## Video du panel Admin(Galdric) [Ici](https://streamable.com/fs45g9)
 
+### Lien vers la maquette figma  [Ici](https://www.figma.com/file/4ABcmAacgpJJ6FuB3V0JC9/Untitled?type=design&node-id=0%3A1&mode=design&t=vhc5sKjHFmGuvxQR-1)
+
