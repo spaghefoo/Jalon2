@@ -15,7 +15,7 @@ Projet de site vitrine pour une compagnie de tourisme maritime ficitive(Marie Te
 * CGU et respect de la RGPD
 
 
-## Video du site vitrine(Théophane et Sofiane) [Ici]()
+## Video du site vitrine(Théophane et Sofiane) [Ici](https://streamable.com/zigrg1)
 
-## Video de la partie comptes(Galdric) [Ici]()
+## Video du panel Admin(Galdric) [Ici](https://streamable.com/fs45g9)
 
