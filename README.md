@@ -4,7 +4,9 @@
 
 Projet de site vitrine pour une compagnie de tourisme maritime ficitive(Marie Team) opérant en bretagne, avec gestion compléte des réservations, des places disponibles, et des comptes utilisateurs
 
-![Image de la page d'accueil](https://ibb.co/hmpV519)
+<p align="center">
+  <img src="https://i.ibb.co/MCq7T5S/marieteam.png" />
+</p>
 
 ## Fonctionnalités implémentés du site
 * Recherche et ajout d'une destination, ainsi que de ses caracteristiques(ports d'arrivée/de retour, horaires, places)
@@ -13,7 +15,7 @@ Projet de site vitrine pour une compagnie de tourisme maritime ficitive(Marie Te
 * CGU et respect de la RGPD
 
 
-[Vidéo du site vitrine]()
+## Video du site vitrine(Théophane et Sofiane) [Ici]()
 
-[Vidéo du panel admin/compte utilisateurs]()
+## Video de la partie comptes(Galdric) [Ici]()
 
